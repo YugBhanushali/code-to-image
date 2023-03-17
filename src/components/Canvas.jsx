@@ -1,10 +1,15 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
 import React, { useEffect, useState } from 'react'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/material.css'
+import 'codemirror/mode/xml/xml'
+import 'codemirror/mode/javascript/javascript'
+import 'codemirror/mode/css/css'
+import SyntaxHighlighter from 'react-syntax-highlighter';
 import "../index.css";
 import { darcula ,atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { Controlled as CodeMirror } from 'react-codemirror2';
+
 import CanvasH from './CanvasH';
-import { render } from 'react-dom';
 import { Syntax } from '../Context/Syntax';
 
 
@@ -46,6 +51,7 @@ useEffect(()=>{
               className='bg-transparent' 
               language="swift" 
               style={atomOneDark} 
+              onChange={()=>settempCode(tempCode)}
               customStyle={
                 {
                   background:'transparent',
@@ -56,17 +62,19 @@ useEffect(()=>{
               >
               {tempCode}
             </SyntaxHighlighter> */}
-            {/* <ReactMarkdown
-              source={tempCode}
-              className="markdown"
-              renderer={{
-                code:Component,
-              }}
-            /> */}
-            {<CanvasH/>}
+            {/* {<CanvasH/>} */}
             {/* <Component code={tempCode}/> */}
             {/* </textarea> */}
             {/* </span> */}
+            <CodeMirror
+            value={tempCode}
+            options={{
+              mode: 'swift',
+              theme: 'material',
+              lineNumbers: false
+            }}
+            onChange={(e)=>settempCode(e.target.value)}
+            />
             </div>
         </div>
     </div>
