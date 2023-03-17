@@ -1,43 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/material.css'
-import 'codemirror/mode/xml/xml'
-import 'codemirror/mode/javascript/javascript'
-import 'codemirror/mode/css/css'
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import "../index.css";
-import { darcula ,atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism-tomorrow.css'; //Example style, you can use another
 
-import CanvasH from './CanvasH';
-import { Syntax } from '../Context/Syntax';
+import "../index.css";
 
 
 const Canvas = () => {
 
-  const [tempCode, settempCode] = useState(`import SwiftUI
-
-  struct CircleImage: View {
-    var body: some View {
-      Image("turtlerock")
-        .clipShape(Circle())
-    }
-  }`);
-
-  
-
-  
-useEffect(()=>{
-  <Component/>
-},[tempCode]);
+  const [code, setCode] = React.useState(
+    `function add(a, b) {\n  return a + b;\n}`
+  );
 
   return (
-    // outerDiv
-    <Syntax.Provider value={{tempCode,settempCode}}>
-    {/* <textarea className='codeBox text-white' aria-hidden='true' spellCheck={false} value={tempCode} onChange={(e)=>settempCode(e.target.value)}><Component code={tempCode}/></textarea> */}
+
     <div className='flex max-h-unset justify-center items-center w-[600px] min-h-[100px] bg-white mt-[100px] m-auto rounded-[0px]'>
     <div className='flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[20px]'>
-        <div style={darcula} className='max-h-unset codeBox min-w-[70%] min-h-[70%]'>
+        <div className='max-h-unset codeBox min-w-[70%] min-h-[70%]'>
         
             <div className='flex max-h-unset relative top-0 w-[100%] h-[10%] rounded-[25px] bg-transparent'>
               <div className='relative mt-[13px] ml-[17px] w-[12px] h-[12px] rounded-full smallBtn'/>
@@ -45,64 +26,22 @@ useEffect(()=>{
               <div className='relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full smallBtn'/>
             </div>
             <div className='bg-transparent min-h-[50px]'>
-            {/* <span spellCheck={false} contentEditable={true} value={tempCode} onChange={(e)=>{settempCode(e.target.value);console.log(e.target.value)}} className="editable-code border-none"> */}
-            {/* <textarea spellCheck={false} value={tempCode} onChange={(e)=>settempCode(e.target.value)} /> */}
-            {/* <SyntaxHighlighter  
-              className='bg-transparent' 
-              language="swift" 
-              style={atomOneDark} 
-              onChange={()=>settempCode(tempCode)}
-              customStyle={
-                {
-                  background:'transparent',
-                  fontFamily:"JetBrains Mono NL",
-                }
-              }
-              wrapLongLines={true}
-              >
-              {tempCode}
-            </SyntaxHighlighter> */}
-            {/* {<CanvasH/>} */}
-            {/* <Component code={tempCode}/> */}
-            {/* </textarea> */}
-            {/* </span> */}
-            <CodeMirror
-            value={tempCode}
-            options={{
-              mode: 'swift',
-              theme: 'material',
-              lineNumbers: false
-            }}
-            onChange={(e)=>settempCode(e.target.value)}
-            />
+                <Editor
+                    value={code}
+                    onValueChange={code => setCode(code)}
+                    highlight={code => highlight(code, languages.js)}
+                    padding={10}
+                    style={{
+                        fontFamily: '"Fira code", "Fira Mono", monospace',
+                        fontSize: 17,
+                        outline:'none',
+                        color:"#9B9492",
+                    }}
+                />
             </div>
         </div>
     </div>
     </div>
-    </Syntax.Provider>
-  )
-}
-
-const Component = ({code ,language})=>{
-  
-  return(
-
-  <SyntaxHighlighter  
-      className='bg-transparent' 
-      language="swift" 
-      style={atomOneDark} 
-      customStyle={
-        {
-          background:'transparent',
-          fontFamily:"JetBrains Mono NL",
-          paddingLeft:"10px",
-          paddingTop:"2px"
-        }
-      }
-      wrapLongLines={true}
-      >
-        {code}
-    </SyntaxHighlighter>
   )
 }
 
