@@ -1,0 +1,15 @@
+.dropdown-container {
+    text-align: left;
+    border: 1px solid rgba(98, 83, 83, 0.82);
+    position: relative;
+    border-radius: 5px;
+  }
+  
+  .dropdown-input {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    width: 200px;
+  }

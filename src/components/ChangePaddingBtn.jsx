@@ -11,7 +11,8 @@ const ChangePaddingBtn = () => {
     const handleChange = ()=>{
         dispatch(changecanvasPadding(`${count}px`));
         // dispatch(changecanvasBackGround('purple'));
-        dispatch(changesnippetFontFamily(''))
+        // dispatch(changesnippetFontFamily(''))
+        dispatch(changesnippetFontFamily(`'Source code pro', monospace`))
         console.log(paddingtemp);
         setcount(count+10) ;
     }

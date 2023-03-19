@@ -77,7 +77,7 @@ const Canvas = () => {
                               color:"#6AE970 ",
                               fontWeight:'500'
                           }}
-                          className='editable-code'
+                          className='editable-code '
                       />
                   </div>
               </div>

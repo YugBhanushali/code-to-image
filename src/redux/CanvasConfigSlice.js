@@ -5,7 +5,7 @@ export const CanvasConfigSlice = createSlice({
     initialState:{
         canvasPadding:'30px',
         canvasBackGround:'#6B5ED9',
-        snippetFontFamily:'JetBrains Mono',
+        snippetFontFamily:`'JetBrains Mono', monospace`,
         snippetMode:'dark',
         snippetTheme:'prism-atom-dark',
         codeLanguage:'javascript',
