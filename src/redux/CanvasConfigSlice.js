@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const CanvasConfigSlice = createSlice({
     name:'canvasStyle',
     initialState:{
-        canvasPadding:'30',
+        canvasPadding:'30px',
         canvasBackGround:'#6B5ED9',
         snippetFontFamily:'JetBrains Mono',
         snippetMode:'dark',
@@ -38,6 +38,6 @@ export const CanvasConfigSlice = createSlice({
     }
 });
 
-export const { canvasPadding , canvasBackGround, changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
+export const { changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
 
 export default CanvasConfigSlice.reducer;

@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changecanvasPadding } from '../redux/CanvasConfigSlice';
-
+import { changecanvasBackGround, changecanvasPadding, changesnippetFontFamily } from '../redux/CanvasConfigSlice';
+ 
 const ChangePaddingBtn = () => {
 
     const paddingtemp=useSelector((state)=>state.canvasStyle.canvasPadding)
     const dispatch = useDispatch();
 
+    const [count, setcount] = useState(50)
     const handleChange = ()=>{
-        dispatch(changecanvasPadding('50'));
+        dispatch(changecanvasPadding(`${count}px`));
+        // dispatch(changecanvasBackGround('purple'));
+        dispatch(changesnippetFontFamily(''))
         console.log(paddingtemp);
+        setcount(count+10) ;
     }
 
   return (

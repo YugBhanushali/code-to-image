@@ -62,3 +62,13 @@ body{
 .editable-title:focus{
   outline: none;
 }
+
+.temp{
+  display: flex;
+  max-height: unset;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 0;
+}
