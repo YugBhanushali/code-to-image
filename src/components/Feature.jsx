@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dropdown from './Dropdown'
+import { FontFamilyList } from '../constants/FontList'
 
 const FeatureOuterBox = styled.div`
     position: fixed;
@@ -13,24 +14,25 @@ const FeatureOuterBox = styled.div`
     background: rgba(40, 37, 37, 0.42);
     border: 1px solid rgba(98, 83, 83, 0.82);
     border-radius: 18px;
-    padding:20px;
+    padding:3px;
     text-align:center
 `
 
 const FeatureInnerBox = styled.div`
-    ${'' /* position: absolute; */}
     display:flex;
-    width: 291px;
-    height: 62px;
+    width: 251px;
+    height: 52px;
     background: rgba(40, 37, 37, 0.42);
     border: 1px solid rgba(98, 83, 83, 0.82);
     border-radius: 7px;
-    margin:10px;
+    margin:8px;
     text-align:center;
     justify-content:center;
     font-family:'JetBrains Mono';
+    font-size:13px;
     color:#BBADAD;
-    padding:15px;
+    padding:13px;
+    align-items:center;
 `
 
 
@@ -40,7 +42,7 @@ const Feature = () => {
         <div className='flex'>
             <FeatureInnerBox>
                 Font
-                <Dropdown />
+                <Dropdown placeHolder='Select...' options={FontFamilyList}/>
             </FeatureInnerBox>
         </div>
         <div className='flex' >

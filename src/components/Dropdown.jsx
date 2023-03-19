@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Dropdown.css";
 
@@ -10,14 +10,49 @@ const Icon = () => {
   );
 };
 
-const Dropdown = ({ placeHolder }) => {
+const Dropdown = ({ placeHolder,options }) => {
+
+    const [showMenu, setshowMenu] = useState(false);
+    const [selectedValue, setselectedValue] = useState(null);
+
+    useEffect(() => {
+        const handler = () => setshowMenu(false);
+
+        window.addEventListener("click",handler);
+
+        return () => {
+            window.removeEventListener("click",handler);
+        };
+    });
+
+    const handleInputClick = (e) => {
+        e.stopPropagation();
+        setshowMenu(!showMenu);
+    }
+    
+
   const getDisplay = () => {
+    if(selectedValue){
+        return selectedValue.lable;
+    }
     return placeHolder;
   };
 
+  const onItemClick = (option) =>{
+        setselectedValue(option);
+  }
+
+  const isSelected = (option) =>{
+    if(!selectedValue){
+        return false;
+    }
+
+    return selectedValue.value === option.value;
+  };
+
   return (
-    <div className="dropdown-container ml-4 ">
-      <div className="dropdown-input">
+    <div className="dropdown-container ml-3">
+      <div onClick={handleInputClick} className="dropdown-input">
         <div className="dropdown-selected-value">{getDisplay()}</div>
         <div className="dropdown-tools">
           <div className="dropdown-tool">
@@ -25,6 +60,21 @@ const Dropdown = ({ placeHolder }) => {
           </div>
         </div>
       </div>
+      {showMenu && (
+        <div className="dropdown-menu">
+            {options.map((option)=>{
+                return (
+                    <div 
+                        onClick={()=> onItemClick(option)}
+                        className={`dropdown-item ${isSelected(option) && 'selected'}`}
+                        key={option.value}
+                    >
+                        {option.lable}
+                    </div>
+                )
+            })}
+        </div>
+      )}
     </div>
   );
 };
