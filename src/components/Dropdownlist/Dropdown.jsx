@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { changesnippetFontFamily } from "../../redux/CanvasConfigSlice";
 
 import "./Dropdown.css";
 
@@ -14,6 +16,7 @@ const Dropdown = ({ placeHolder,options }) => {
 
     const [showMenu, setshowMenu] = useState(false);
     const [selectedValue, setselectedValue] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const handler = () => setshowMenu(false);
@@ -33,13 +36,15 @@ const Dropdown = ({ placeHolder,options }) => {
 
   const getDisplay = () => {
     if(selectedValue){
-        return selectedValue.lable;
+        return selectedValue.label;
     }
     return placeHolder;
   };
 
   const onItemClick = (option) =>{
         setselectedValue(option);
+        dispatch(changesnippetFontFamily(option.value));
+        
   }
 
   const isSelected = (option) =>{
@@ -52,7 +57,7 @@ const Dropdown = ({ placeHolder,options }) => {
 
   return (
     <div className="dropdown-container ml-3">
-      <div onClick={handleInputClick} className="dropdown-input">
+      <div onClick={handleInputClick} className="dropdown-input w-[180px]" >
         <div className="dropdown-selected-value">{getDisplay()}</div>
         <div className="dropdown-tools">
           <div className="dropdown-tool">
@@ -69,7 +74,7 @@ const Dropdown = ({ placeHolder,options }) => {
                         className={`dropdown-item ${isSelected(option) && 'selected'}`}
                         key={option.value}
                     >
-                        {option.lable}
+                        {option.label}
                     </div>
                 )
             })}

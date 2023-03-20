@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Dropdown from './Dropdown'
-import { FontFamilyList } from '../constants/FontList'
+import { FontFamilyList, PaddingList, ProgrammingLanguages } from '../constants/Constants'
+import ColourPicker from './ColourPicker'
+import Dropdown from './Dropdownlist/Dropdown'
+import DropdownLanguage from './Dropdownlist/DropdownLanguage'
+import DropdownPadding from './Dropdownlist/DropdownPadding'
 
 const FeatureOuterBox = styled.div`
     position: fixed;
@@ -20,7 +23,7 @@ const FeatureOuterBox = styled.div`
 
 const FeatureInnerBox = styled.div`
     display:flex;
-    width: 251px;
+    width: ${(props)=>props.withOfBox};
     height: 52px;
     background: rgba(40, 37, 37, 0.42);
     border: 1px solid rgba(98, 83, 83, 0.82);
@@ -40,14 +43,23 @@ const Feature = () => {
   return (
     <FeatureOuterBox>
         <div className='flex'>
-            <FeatureInnerBox>
+            <FeatureInnerBox withOfBox='251px'>
                 Font
                 <Dropdown placeHolder='Select...' options={FontFamilyList}/>
             </FeatureInnerBox>
+            <FeatureInnerBox withOfBox='180px'>
+                Padding
+                <DropdownPadding placeHolder='30' options={PaddingList}/>
+            </FeatureInnerBox>
+            <FeatureInnerBox withOfBox='210px'>
+                Language
+                <DropdownLanguage placeHolder='Java' options={ProgrammingLanguages}/>
+            </FeatureInnerBox>
         </div>
         <div className='flex' >
-            <FeatureInnerBox>
-                dfdljfoij
+            <FeatureInnerBox withOfBox='300px'>
+                Background
+                <ColourPicker/>
             </FeatureInnerBox>
 
             <FeatureInnerBox>

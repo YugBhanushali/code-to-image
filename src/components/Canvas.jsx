@@ -2,12 +2,30 @@ import React, { useEffect, useState } from 'react'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-swift';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-markup';
-// import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
-import '../theme/prism-atom-dark.css';
+
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-java";
+// import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-ruby";
+// import "prismjs/components/prism-php";
+import "prismjs/components/prism-swift";
+import "prismjs/components/prism-kotlin";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-csharp";
+import "prismjs/components/prism-go";
+import "prismjs/components/prism-scala";
+import "prismjs/components/prism-rust";
+import "prismjs/components/prism-lua";
+import "prismjs/components/prism-perl";
+import "prismjs/components/prism-haskell";
+// import "prismjs/components/prism-objectivec";
+// import "prismjs/components/prism-shell";
+import "prismjs/components/prism-dart";
+import "prismjs/components/prism-sql";
+
+import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
+// import '../theme/prism-atom-dark.css';
 import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSlice.js';
@@ -41,6 +59,9 @@ const Canvas = () => {
   },[canvasPadding,codeContent]);
   
 
+  const handleLanguages = ()=>{
+    return languages.codeLanguage;
+  }
 
   return (
 
@@ -68,8 +89,7 @@ const Canvas = () => {
                       <Editor
                           value={code}
                           onValueChange={code => {setCode(code);dispatch(changecodeContent(code))}}
-                          highlight={code => highlight(code, languages.swift)}
-                          // padding={12}
+                          highlight={code => highlight(code, languages[codeLanguage])}
                           style={{
                               fontFamily: `${snippetFontFamily}`,
                               fontSize: 16,
