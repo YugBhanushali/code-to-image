@@ -5,6 +5,7 @@ export const CanvasConfigSlice = createSlice({
     initialState:{
         canvasPadding:'30px',
         canvasBackGround:'#6B5ED9',
+        canvasWidth:'800px',
         snippetFontFamily:`'JetBrains Mono', monospace`,
         snippetMode:'dark',
         snippetTheme:'prism-atom-dark',
@@ -35,9 +36,12 @@ export const CanvasConfigSlice = createSlice({
         changecodeContent:(state,action) =>{
             state.codeContent = action.payload;
         },
+        changecanvasWidth:(state,action) =>{
+            state.canvasWidth = action.payload;
+        },
     }
 });
 
-export const { changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
+export const { changecanvasWidth, changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
 
 export default CanvasConfigSlice.reducer;

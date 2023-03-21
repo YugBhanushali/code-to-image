@@ -1,45 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FontFamilyList, PaddingList, ProgrammingLanguages } from '../constants/Constants'
+import { FontFamilyList, PaddingList, ProgrammingLanguages, WidthList } from '../constants/Constants'
 import ColourPicker from './ColourPicker'
 import Dropdown from './Dropdownlist/Dropdown'
 import DropdownLanguage from './Dropdownlist/DropdownLanguage'
 import DropdownPadding from './Dropdownlist/DropdownPadding'
-
-const FeatureOuterBox = styled.div`
-    position: fixed;
-    display:flex-col;
-    ${'' /* z-index:5; */}
-    margin:auto;
-    width:900px;
-    bottom: 100px;
-    ${'' /* align-items: center; */}
-    background: rgba(40, 37, 37, 0.42);
-    border: 1px solid rgba(98, 83, 83, 0.82);
-    border-radius: 18px;
-    padding:3px;
-    text-align:center
-`
-
-const FeatureInnerBox = styled.div`
-    display:flex;
-    width: ${(props)=>props.withOfBox};
-    height: 52px;
-    background: rgba(40, 37, 37, 0.42);
-    border: 1px solid rgba(98, 83, 83, 0.82);
-    border-radius: 7px;
-    margin:8px;
-    text-align:center;
-    justify-content:center;
-    font-family:'JetBrains Mono';
-    font-size:13px;
-    color:#BBADAD;
-    padding:13px;
-    align-items:center;
-`
+import DropdownWidth from './Dropdownlist/DropdownWidth'
+import { FeatureGeneralBox, FeatureInnerBox,FeatureMediumBox,FeatureOuterBox } from '../styled/StyledFeature'
+import ColourType from './ColourType'
+import SolidColour from './SolidColour'
+import GradientColour from './GradientColour'
 
 
 const Feature = () => {
+
+    const [colourType, setcolourType] = useState(false)
   return (
     <FeatureOuterBox>
         <div className='flex'>
@@ -51,19 +26,32 @@ const Feature = () => {
                 Padding
                 <DropdownPadding placeHolder='30' options={PaddingList}/>
             </FeatureInnerBox>
-            <FeatureInnerBox withOfBox='210px'>
+            <FeatureInnerBox withOfBox='220px'>
                 Language
-                <DropdownLanguage placeHolder='Java' options={ProgrammingLanguages}/>
+                <DropdownLanguage placeHolder='JavaScript' options={ProgrammingLanguages}/>
             </FeatureInnerBox>
         </div>
         <div className='flex' >
-            <FeatureInnerBox withOfBox='300px'>
+            <div>
+            <FeatureInnerBox heightOfBox='67px' withOfBox='550px'>
                 Background
-                <ColourPicker/>
+                {/* <ColourPicker/> */}
+                <ColourType/>
+                {/* <FeatureMediumBox withOfBox='400px' heightOfBox='200px'>
+                
+                </FeatureMediumBox> */}
+            </FeatureInnerBox>
+            <FeatureInnerBox heightOfBox='200px'>
+                {/* <SolidColour/> */}
+                {/* <GradientColour/> */}
+                {colourType === true ? <SolidColour/> : <GradientColour/>}
             </FeatureInnerBox>
 
-            <FeatureInnerBox>
-                dfdljfoij
+            </div>
+
+            <FeatureInnerBox  widthOfBox='200px' heightOfBox='52px'>
+                Width
+                <DropdownWidth placeHolder='800' options={WidthList}/>
             </FeatureInnerBox>
         </div>
         

@@ -16,6 +16,17 @@ const StyledBackground= styled.div`
     background:${(props)=>props.backgroundColour};
     padding:${(props)=>props.Padding};
   }
+
+  .outerCanvas{
+    display: flex;
+    max-height: unset;
+    background:'white';
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    margin-top: 100px;
+    width:${(props)=>props.withOfCanvas};
+  }
 `
 
 export {StyledBackground};

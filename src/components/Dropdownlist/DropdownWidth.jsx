@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { changecodeLanguage, changesnippetFontFamily } from "../../redux/CanvasConfigSlice";
+import { changecanvasWidth, changecodeLanguage, changesnippetFontFamily } from "../../redux/CanvasConfigSlice";
 
 import "./Dropdown.css";
 
@@ -12,8 +12,7 @@ const Icon = () => {
   );
 };
 
-const DropdownLanguage 
-= ({ placeHolder,options }) => {
+const DropdownWidth = ({ placeHolder,options }) => {
 
     const [showMenu, setshowMenu] = useState(false);
     const [selectedValue, setselectedValue] = useState(null);
@@ -44,7 +43,7 @@ const DropdownLanguage
 
   const onItemClick = (option) =>{
         setselectedValue(option);
-        dispatch(changecodeLanguage(option.name));   
+        dispatch(changecanvasWidth(option.value));   
   }
 
   const isSelected = (option) =>{
@@ -52,7 +51,7 @@ const DropdownLanguage
         return false;
     }
 
-    return selectedValue.name === option.name;
+    return selectedValue.value === option.value;
   };
 
   return (
@@ -84,4 +83,4 @@ const DropdownLanguage
   );
 };
 
-export default DropdownLanguage;
+export default DropdownWidth;

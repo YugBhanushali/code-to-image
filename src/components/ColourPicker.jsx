@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { ChromePicker } from 'react-color'
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { changecanvasBackGround } from '../redux/CanvasConfigSlice';

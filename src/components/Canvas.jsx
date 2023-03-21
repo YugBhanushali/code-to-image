@@ -25,7 +25,7 @@ import "prismjs/components/prism-dart";
 import "prismjs/components/prism-sql";
 
 import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
-// import '../theme/prism-atom-dark.css';
+import '../theme/prism-atom-dark.css';
 import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSlice.js';
@@ -41,11 +41,12 @@ const Canvas = () => {
   const snippetTheme=useSelector((state)=>state.canvasStyle.snippetTheme);
   const codeLanguage=useSelector((state)=>state.canvasStyle.codeLanguage);
   const codeContent=useSelector((state)=>state.canvasStyle.codeContent);
+  const canvasWidth = useSelector((state)=>state.canvasStyle.canvasWidth);
 
   const dispatch = useDispatch();
 
   console.log(canvasPadding,canvasBackGround,snippetFontFamily,snippetMode,snippetTheme
-    ,codeLanguage,codeContent);
+    ,codeLanguage,codeContent,canvasWidth);
 
   const [code, setCode] = React.useState(
     `function add(a, b) {\n  return a + b;\n}`
@@ -65,8 +66,8 @@ const Canvas = () => {
 
   return (
 
-    <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} >
-      <div className='flex max-h-unset justify-center items-center w-[800px] min-h-[100px] bg-white mt-[100px] m-auto rounded-[0px]'>
+    <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} >
+      <div className={`outerCanvas`}>
           {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
           <div className={`canTheme`}>
               <div className='max-h-unset codeBox min-w-[70%] min-h-[70%]'>
