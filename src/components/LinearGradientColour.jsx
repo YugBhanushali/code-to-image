@@ -1,8 +1,17 @@
 import React from 'react'
 import { FeatureGeneralBox } from '../styled/StyledFeature'
 import ColourPicker from './ColourPicker'
+import { CanvasConfigSlice, changecanvasBackgroundAngle } from '../redux/CanvasConfigSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const LinearGradientColour = () => {
+
+    const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
+    const dispatch = useDispatch();
+
+    const handleChange =(e)=>{
+        console.log(e.target.value);
+    }
   return (
     <>
         <div className='flex flex-row'>
@@ -31,9 +40,10 @@ const LinearGradientColour = () => {
                     </div>
                     <div className='flex text-center justify-center items-center'>
                         <FeatureGeneralBox paddingOfBox='30%' heightOfBox='52px' withOfBox='60px'>
-                            <div className='flex justify-center items-center'>
-                                100
-                            </div>
+                            {/* <div onChange={handleChange} contentEditable='true' className='flex justify-center items-center'>
+                                {canvasGradientBackgroundAngle}
+                            </div> */}
+                            <input onChange={(e)=>dispatch(changecanvasBackgroundAngle(e.target.value))} value={canvasGradientBackgroundAngle} className='bg-transparent outline-none'></input>
                         </FeatureGeneralBox>
                     </div>
                 </div>
