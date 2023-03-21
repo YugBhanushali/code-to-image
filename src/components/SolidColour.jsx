@@ -10,7 +10,7 @@ const SolidColour = () => {
                 Background Colour
             </FeatureGeneralBox>
             <FeatureGeneralBox paddingOfBox='13px' heightOfBox='52px' widthOfBox='200px'>
-                <ColourPicker/>
+                <ColourPicker bgType='solid'/>
             </FeatureGeneralBox>
         </div>
     </div>

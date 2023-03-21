@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
@@ -30,6 +30,7 @@ import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSlice.js';
 import { StyledBackground } from '../styled/StyledCanvasBg';
+import { GlobelThemeContext } from '../Context/GlobelThemeContext';
 
 
 const Canvas = () => {
@@ -42,11 +43,13 @@ const Canvas = () => {
   const codeLanguage=useSelector((state)=>state.canvasStyle.codeLanguage);
   const codeContent=useSelector((state)=>state.canvasStyle.codeContent);
   const canvasWidth = useSelector((state)=>state.canvasStyle.canvasWidth);
+  const canvasGradientBackgroundStart= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundStart);
+  const canvasGradientBackgroundEnd= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundEnd);
+  const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
 
   const dispatch = useDispatch();
 
-  console.log(canvasPadding,canvasBackGround,snippetFontFamily,snippetMode,snippetTheme
-    ,codeLanguage,codeContent,canvasWidth);
+  console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
 
   const [code, setCode] = React.useState(
     `function add(a, b) {\n  return a + b;\n}`
@@ -54,8 +57,6 @@ const Canvas = () => {
 
   useEffect(() => {
     // dispatch(changecanvasPadding(40));
-    console.log('ugilyh'+canvasPadding);
-    console.log('ugilyh'+codeContent);
     
   },[canvasPadding,codeContent]);
   
@@ -64,12 +65,16 @@ const Canvas = () => {
     return languages.codeLanguage;
   }
 
+  // const [bgTheme, setbgTheme] = useState('solid');
+  const {bgTheme,setbgTheme} = useContext(GlobelThemeContext);
+
+
   return (
 
-    <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} >
+    <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
       <div className={`outerCanvas`}>
           {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
-          <div className={`canTheme`}>
+          <div className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
               <div className='max-h-unset codeBox min-w-[70%] min-h-[70%]'>
               
                   <div className='flex flex-row max-h-unset relative top-0 w-[100%] min-h-[10%] rounded-[25px] bg-transparent z-0'>

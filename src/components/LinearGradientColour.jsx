@@ -16,7 +16,7 @@ const LinearGradientColour = () => {
                     </div>
                     <div>
                         <FeatureGeneralBox paddingOfBox='2px' heightOfBox='52px' withOfBox='160px'>
-                            <ColourPicker/>
+                            <ColourPicker bgType='linear 0'/>
                         </FeatureGeneralBox>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const LinearGradientColour = () => {
                     </div>
                     <div>
                         <FeatureGeneralBox paddingOfBox='2px' heightOfBox='52px' withOfBox='160px'>
-                            <ColourPicker/>
+                            <ColourPicker bgType='linear 1'/>
                         </FeatureGeneralBox>
                     </div>
                 </div>

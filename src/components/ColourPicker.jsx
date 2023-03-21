@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { changecanvasBackGround } from '../redux/CanvasConfigSlice';
+import { changecanvasBackGround, changecanvasBackgroundEnd, changecanvasBackgroundStart } from '../redux/CanvasConfigSlice';
 
 const ColourBox = styled.div`
   .inputTheme{
@@ -27,27 +27,63 @@ const ColourBox = styled.div`
   }
 `
 
-const ColourPicker = () => {
+const ColourPicker = (props) => {
 
     const [color, setColor] = useState('#6B5ED9');
-    const [showPicker, setShowPicker] = useState(false);
+    const [colorStart, setcolorStart] = useState('#6B5ED9');
+    const [colorEnd, setcolorEnd] = useState('#6B5ED9');
+    // const [showPicker, setShowPicker] = useState(false);
+    const [themeChecker, setthemeChecker] = useState(props.bgType);
     const dispatch = useDispatch();
 
     const handleChangeForPicker = (e)=> {
+
+      if(props.bgType==='solid'){
         setColor(e.target.value);
         console.log(e.target.value);
         dispatch(changecanvasBackGround(color));
+      }
+      else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
+        setcolorStart(e.target.value);
+        console.log(e.target.value);
+        dispatch(changecanvasBackgroundStart(colorStart));
+      }
+      else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
+        setcolorEnd(e.target.value);
+        console.log(e.target.value);
+        dispatch(changecanvasBackgroundEnd(colorEnd));
+      }
     }
 
     const handleChangeForInput = (e)=>{
-        console.log(e.target.value);
+      if(props.bgType==='solid'){
         setColor(e.target.value);
+        console.log(e.target.value);
         dispatch(changecanvasBackGround(color));
+      }
+      else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
+        setColor(e.target.value);
+        console.log(e.target.value);
+        dispatch(changecanvasBackgroundStart(color));
+      }
+      else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
+        setColor(e.target.value);
+        console.log(e.target.value);
+        dispatch(changecanvasBackgroundEnd(color));
+      }
     }
 
 
     useEffect(()=>{
-      dispatch(changecanvasBackGround(color));
+      // if(props.bgType==='solid'){
+      //   dispatch(changecanvasBackGround(color));
+      // }
+      // else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
+      //   dispatch(changecanvasBackgroundStart(colorStart));
+      // }
+      // else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
+      //   dispatch(changecanvasBackgroundEnd(colorEnd));
+      // }
     },[color]);
 
   return (

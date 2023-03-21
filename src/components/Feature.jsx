@@ -7,14 +7,16 @@ import DropdownLanguage from './Dropdownlist/DropdownLanguage'
 import DropdownPadding from './Dropdownlist/DropdownPadding'
 import DropdownWidth from './Dropdownlist/DropdownWidth'
 import { FeatureGeneralBox, FeatureInnerBox,FeatureMediumBox,FeatureOuterBox } from '../styled/StyledFeature'
-import ColourType from './ColourType'
 import SolidColour from './SolidColour'
 import GradientColour from './GradientColour'
+import ColourType from './ColourType'
+import { ColourTypeContext } from '../Context/ColourType'
+
 
 
 const Feature = () => {
 
-    const [colourType, setcolourType] = useState(false)
+    const [colourType, setcolourType] = useState('solid')
   return (
     <FeatureOuterBox>
         <div className='flex'>
@@ -33,19 +35,19 @@ const Feature = () => {
         </div>
         <div className='flex' >
             <div>
-            <FeatureInnerBox heightOfBox='67px' withOfBox='550px'>
-                Background
-                {/* <ColourPicker/> */}
-                <ColourType/>
-                {/* <FeatureMediumBox withOfBox='400px' heightOfBox='200px'>
-                
-                </FeatureMediumBox> */}
-            </FeatureInnerBox>
-            <FeatureInnerBox heightOfBox='200px'>
-                {/* <SolidColour/> */}
-                {/* <GradientColour/> */}
-                {colourType === true ? <SolidColour/> : <GradientColour/>}
-            </FeatureInnerBox>
+            <ColourTypeContext.Provider value={{colourType,setcolourType}}>
+                <FeatureInnerBox heightOfBox='67px' withOfBox='550px'>
+                    Background
+                    <ColourType/>
+                </FeatureInnerBox>
+            </ColourTypeContext.Provider>
+            <ColourTypeContext.Provider value={{colourType,setcolourType}}>
+                <FeatureInnerBox heightOfBox='200px'>
+                    {/* <SolidColour/> */}
+                    {/* <GradientColour/> */}
+                    {colourType === 'solid' ? <SolidColour/> : <GradientColour/>}
+                </FeatureInnerBox>
+            </ColourTypeContext.Provider>
 
             </div>
 
