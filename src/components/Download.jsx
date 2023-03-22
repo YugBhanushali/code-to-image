@@ -1,26 +1,40 @@
-import React from 'react'
+import React, { useCallback, useRef } from 'react'
 import { FeatureGeneralBox, FeatureInnerBox } from '../styled/StyledFeature'
 import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
+import Canvas from './Canvas';
 
+// export const ref = useRef<HTMLDivElement>(null);
+const Download = ({sharedRef}) => {
 
-const Download = () => {
-
-    const takeScreenshot = () => {
-        html2canvas(document.querySelector('#mainCanvas'))
-          .then((canvas) => {
-            const link = document.createElement('a');
-            link.download = 'component.png';
-            link.href = canvas.toDataURL();
-            link.click();
-          });
-      }
-
+    const onButtonClick = useCallback(() => {
+        if (sharedRef.current === null) {
+          return
+        }
+    
+        toPng(sharedRef.current, { cacheBust: true, })
+          .then((dataUrl) => {
+            const link = document.createElement('a')
+            link.download = 'my-image-name.png'
+            link.href = dataUrl
+            link.click()
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }, [sharedRef])
+    
   return (
-    <div onClick={takeScreenshot}>
-      <FeatureInnerBox withOfBox='200px' heightOfBox='68px' >
-        Download
-      </FeatureInnerBox>
-    </div>
+    <>
+        {/* <div ref={ref}>
+            <Canvas/>
+        </div> */}
+        <div onClick={onButtonClick}>
+        <FeatureInnerBox withOfBox='200px' heightOfBox='68px' >
+            Download
+        </FeatureInnerBox>
+        </div>
+    </>
   )
 }
 

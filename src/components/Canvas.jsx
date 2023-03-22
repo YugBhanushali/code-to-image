@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
@@ -33,8 +33,7 @@ import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSli
 import { StyledBackground } from '../styled/StyledCanvasBg';
 import { GlobelThemeContext } from '../Context/GlobelThemeContext';
 
-
-const Canvas = () => {
+const Canvas = ({sharedRef}) => {
 
   const canvasPadding=useSelector((state)=>state.canvasStyle.canvasPadding);
   const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
@@ -61,18 +60,17 @@ const Canvas = () => {
     
   },[canvasPadding,codeContent]);
   
+  console.log(sharedRef.current);
   
 
   // const [bgTheme, setbgTheme] = useState('solid');
   const {bgTheme,setbgTheme} = useContext(GlobelThemeContext);
-
-
   return (
 
     <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
-      <div id='mainCanvas' className={`outerCanvas`}>
+      <div  className={`outerCanvas`}>
           {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
-          <div className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
+          <div ref={sharedRef} className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
               <div className={`max-h-unset ${snippetMode==='dark' ? 'codeBox' : 'codeBox-light'} min-w-[70%] min-h-[70%]`}>
               
                   <div className='flex flex-row max-h-unset relative top-0 w-[100%] min-h-[10%] rounded-[25px] bg-transparent z-0'>

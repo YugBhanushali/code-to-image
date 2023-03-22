@@ -18,7 +18,7 @@ import Download from './Download'
 
 
 
-const Feature = () => {
+const Feature = ({sharedRef}) => {
 
     const dispatch = useDispatch();
     const [colourType, setcolourType] = useState('solid')
@@ -64,7 +64,7 @@ const Feature = () => {
             </div>
             <div className='flex flex-col'>
 
-                <Download/>
+                <Download sharedRef={sharedRef} />
                 <FeatureInnerBox  widthOfBox='200px' heightOfBox='67px'>
                     Width
                     <DropdownWidth placeHolder='800' options={WidthList}/>
