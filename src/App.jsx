@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="flex justify-center items-center">
       <GlobelThemeContext.Provider value={{bgTheme,setbgTheme}}>
-        <Canvas/>
-        <Feature/>
+          <Canvas/>
+          <Feature/>
       </GlobelThemeContext.Provider>
     </div>
   )

@@ -24,8 +24,9 @@ import "prismjs/components/prism-haskell";
 import "prismjs/components/prism-dart";
 import "prismjs/components/prism-sql";
 
-import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
-import '../theme/prism-atom-dark.css';
+// import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
+import '../theme/prism-one-dark.css';
+// import '../theme/prism-darcula.css';
 import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSlice.js';
@@ -39,7 +40,7 @@ const Canvas = () => {
   const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
   const snippetFontFamily=useSelector((state)=>state.canvasStyle.snippetFontFamily);
   const snippetMode=useSelector((state)=>state.canvasStyle.snippetMode);
-  const snippetTheme=useSelector((state)=>state.canvasStyle.snippetTheme);
+  // const snippetTheme=useSelector((state)=>state.canvasStyle.snippetTheme);
   const codeLanguage=useSelector((state)=>state.canvasStyle.codeLanguage);
   const codeContent=useSelector((state)=>state.canvasStyle.codeContent);
   const canvasWidth = useSelector((state)=>state.canvasStyle.canvasWidth);
@@ -60,10 +61,7 @@ const Canvas = () => {
     
   },[canvasPadding,codeContent]);
   
-
-  const handleLanguages = ()=>{
-    return languages.codeLanguage;
-  }
+  
 
   // const [bgTheme, setbgTheme] = useState('solid');
   const {bgTheme,setbgTheme} = useContext(GlobelThemeContext);
@@ -72,21 +70,21 @@ const Canvas = () => {
   return (
 
     <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
-      <div className={`outerCanvas`}>
+      <div id='mainCanvas' className={`outerCanvas`}>
           {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
           <div className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
-              <div className='max-h-unset codeBox min-w-[70%] min-h-[70%]'>
+              <div className={`max-h-unset ${snippetMode==='dark' ? 'codeBox' : 'codeBox-light'} min-w-[70%] min-h-[70%]`}>
               
                   <div className='flex flex-row max-h-unset relative top-0 w-[100%] min-h-[10%] rounded-[25px] bg-transparent z-0'>
 
                     <div className='flex flex-row max-h-unset relative top-0 h-[10%] rounded-[25px] bg-transparent z-0'> 
-                      <div className='relative mt-[13px] ml-[17px] w-[12px] h-[12px] rounded-full smallBtn'/>
-                      <div className='relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full smallBtn'/>
-                      <div className='relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full smallBtn'/>
+                      <div className={`relative mt-[13px] ml-[17px] w-[12px] h-[12px] rounded-full ${snippetMode==='dark' ? 'smallBtn' : 'smallBtn-light'}`}/>
+                      <div className={`relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full ${snippetMode==='dark' ? 'smallBtn' : 'smallBtn-light'}`}/>
+                      <div className={`relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full ${snippetMode==='dark' ? 'smallBtn' : 'smallBtn-light'}`}/>
                     </div>
 
                     <div className='relative text-center h-[100%] w-[90%] mr-[10%] bg-transparent mt-1 focus:border-none z-20'>
-                        <span contentEditable='true' className='text-[#efebebc7] text-[13px] text-center editable-title'>Untitled - 1</span>
+                        <span contentEditable='true' className={`${snippetMode==='dark' ? 'text-[#efebebc7]' : 'text-[#565656c7]'} text-[13px] text-center editable-title`}>Untitled - 1</span>
                     </div>
 
                   </div>
@@ -100,7 +98,7 @@ const Canvas = () => {
                               fontFamily: `${snippetFontFamily}`,
                               fontSize: 16,
                               outline:'none',
-                              color:"#6AE970 ",
+                              color:`${snippetMode==='dark' ? '#6AE970' : '#046A08'}`,
                               fontWeight:'500'
                           }}
                           className='editable-code '

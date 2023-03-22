@@ -19,7 +19,7 @@ const GradientColour = () => {
                         Gradient type
                         <ColourType/>
                     </FeatureGeneralBox> */}
-                    <FeatureGeneralBox marginOfBox='0px' heightOfBox='50px' withOfBox='160px' paddingOfBox='13px'>Gradient type</FeatureGeneralBox>
+                    <FeatureGeneralBox marginOfBox='0px' heightOfBox='52px' withOfBox='160px' paddingOfBox='13px'>Gradient type</FeatureGeneralBox>
                     <GradientType/>
                 </div>
 
