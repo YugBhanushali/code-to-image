@@ -32,8 +32,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent, changesnippetFileName } from '../redux/CanvasConfigSlice.js';
 import { StyledBackground } from '../styled/StyledCanvasBg';
 import { GlobelThemeContext } from '../Context/GlobelThemeContext';
+import { useNavigate} from 'react-router-dom';
 
 const Canvas = ({sharedRef}) => {
+
+  
 
   const canvasPadding=useSelector((state)=>state.canvasStyle.canvasPadding);
   const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
@@ -48,6 +51,7 @@ const Canvas = ({sharedRef}) => {
   const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
   const snippetFileName= useSelector((state)=>state.canvasStyle.snippetFileName);
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
 
@@ -56,9 +60,13 @@ const Canvas = ({sharedRef}) => {
   );
 
   useEffect(() => {
-    // dispatch(changecanvasPadding(40));
+    history({
+      pathname:'/',
+      search:`padding=${canvasPadding}&canvasBackground=${canvasBackGround.substring(1,canvasBackGround.length)}&fontFamily=${snippetFontFamily}&mode=${snippetMode}&codelanguage=${codeLanguage}&content=${codeContent}`
+    })
     
-  },[canvasPadding,codeContent]);
+    
+  },[canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
   
   console.log(sharedRef.current);
   

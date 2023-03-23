@@ -39,7 +39,7 @@ const Download = ({sharedRef}) => {
         return
       }
   
-      toSvg(sharedRef.current, { cacheBust: true,},{style})
+      toSvg(sharedRef.current, { cacheBust: true},style)
         .then((dataUrl) => {
           const link = document.createElement('a')
           link.download = 'code-to-image.svg'
