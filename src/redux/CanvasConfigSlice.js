@@ -15,7 +15,8 @@ export const CanvasConfigSlice = createSlice({
           }`,
         canvasGradientBackgroundStart:'#6B5ED9',
         canvasGradientBackgroundEnd:'#6B5ED9',
-        canvasGradientBackgroundAngle:'90',  
+        canvasGradientBackgroundAngle:'90',
+        snippetFileName:'Untitled - 1',  
     },
     reducers:{
         changecanvasPadding:(state,action) =>{
@@ -51,9 +52,12 @@ export const CanvasConfigSlice = createSlice({
         changecanvasBackgroundAngle:(state,action) =>{
             state.canvasGradientBackgroundAngle = action.payload;
         },
+        changesnippetFileName:(state,action) =>{
+            state.snippetFileName = action.payload;
+        },
     }
 });
 
-export const { changecanvasBackgroundStart,changecanvasBackgroundEnd,changecanvasBackgroundAngle, changecanvasWidth, changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
+export const { changesnippetFileName, changecanvasBackgroundStart,changecanvasBackgroundEnd,changecanvasBackgroundAngle, changecanvasWidth, changecanvasPadding, changecanvasBackGround ,changesnippetFontFamily, changesnippetMode, changesnippetTheme, changecodeLanguage, changecodeContent} = CanvasConfigSlice.actions;
 
 export default CanvasConfigSlice.reducer;

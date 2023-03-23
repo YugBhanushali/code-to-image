@@ -29,7 +29,7 @@ import '../theme/prism-one-dark.css';
 // import '../theme/prism-darcula.css';
 import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { changecanvasPadding, changecodeContent } from '../redux/CanvasConfigSlice.js';
+import { changecanvasPadding, changecodeContent, changesnippetFileName } from '../redux/CanvasConfigSlice.js';
 import { StyledBackground } from '../styled/StyledCanvasBg';
 import { GlobelThemeContext } from '../Context/GlobelThemeContext';
 
@@ -46,7 +46,7 @@ const Canvas = ({sharedRef}) => {
   const canvasGradientBackgroundStart= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundStart);
   const canvasGradientBackgroundEnd= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundEnd);
   const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
-
+  const snippetFileName= useSelector((state)=>state.canvasStyle.snippetFileName);
   const dispatch = useDispatch();
 
   console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
@@ -82,7 +82,7 @@ const Canvas = ({sharedRef}) => {
                     </div>
 
                     <div className='relative text-center h-[100%] w-[90%] mr-[10%] bg-transparent mt-1 focus:border-none z-20'>
-                        <span contentEditable='true' className={`${snippetMode==='dark' ? 'text-[#efebebc7]' : 'text-[#565656c7]'} text-[13px] text-center editable-title`}>Untitled - 1</span>
+                        <input value={snippetFileName} onChange={(e)=>{dispatch(changesnippetFileName(e.target.value))}} contentEditable='true' className={` bg-transparent ${snippetMode==='dark' ? 'text-[#efebebc7]' : 'text-[#565656c7]'} text-[13px] text-center editable-title`}></input>
                     </div>
 
                   </div>

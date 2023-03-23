@@ -6,7 +6,7 @@ import { GlobelThemeContext } from './Context/GlobelThemeContext'
 
 function App() {
   const [count, setCount] = useState(0)
-  const myRef = useRef(0);
+  const myRef = useRef(null);
 
   const [bgTheme, setbgTheme] = useState('solid');
   return (
