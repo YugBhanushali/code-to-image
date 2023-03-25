@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { FontFamilyList, PaddingList, ProgrammingLanguages, WidthList } from '../constants/Constants'
 import ColourPicker from './ColourPicker'
@@ -15,15 +15,17 @@ import ToggleSwitch from './ToggleSwitch/ToggleSwitch'
 import { useDispatch } from 'react-redux'
 import { changesnippetMode } from '../redux/CanvasConfigSlice'
 import Download from './Download'
+import { VisibleContext } from '../Context/VisibleContext'
 
 
 
 const Feature = ({sharedRef}) => {
 
+    const {visiblity, setvisiblity} =useContext(VisibleContext);
     const dispatch = useDispatch();
     const [colourType, setcolourType] = useState('solid')
   return (
-    <FeatureOuterBox>
+    <FeatureOuterBox className={`${visiblity===true ? null : 'hidden'}`}>
         <div className='flex'>
             <FeatureInnerBox withOfBox='251px'>
                 Font
@@ -37,7 +39,7 @@ const Feature = ({sharedRef}) => {
                 Language
                 <DropdownLanguage placeHolder='JavaScript' options={ProgrammingLanguages}/>
             </FeatureInnerBox>
-            <FeatureInnerBox withOfBox='220px'>
+            <FeatureInnerBox withOfBox='200px'>
                 Mode
                 <ToggleSwitch
                     label="Toggle me"

@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 const FeatureOuterBox = styled.div`
-    position: fixed;
+    ${'' /* position: fixed; */}
     display:flex-col;
     ${'' /* z-index:5; */}
     margin:auto;
-    width:900px;
-    bottom: 100px;
+    width:800px;
+    bottom: 50px;
     ${'' /* align-items: center; */}
     background: rgba(159, 159, 159, 0.24);
     border: 1px solid rgba(178, 168, 168, 0.52);
-    border-radius: 18px;
+    border-radius: 12px;
     padding:3px;
     text-align:center
 `
@@ -23,7 +23,7 @@ const FeatureInnerBox = styled.div`
     background: rgba(17, 17, 17, 0.42);
     border: 1px solid rgba(175, 159, 159, 0.62);
     border-radius: 7px;
-    margin:6px;
+    margin:4px;
     text-align:center;
     justify-content:start;
     font-family:'JetBrains Mono';

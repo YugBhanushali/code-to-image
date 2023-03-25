@@ -50,7 +50,13 @@ const WidthList = [
     {label:'1000',value:'1000px'},
     {label:'1100',value:'1100px'},
     {label:'1200',value:'1200px'},
-]  
+];
+
+const FormatList = [
+    {label:'PNG',value:'.png'},
+    {label:'SVG',value:'.svg'},
+    {label:'JPEG',value:'.jpeg'},
+]
   
 
-export {FontFamilyList,PaddingList,ProgrammingLanguages,WidthList};
+export {FontFamilyList,PaddingList,ProgrammingLanguages,WidthList,FormatList};

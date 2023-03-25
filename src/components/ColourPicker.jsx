@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { changecanvasBackGround, changecanvasBackgroundEnd, changecanvasBackgroundStart } from '../redux/CanvasConfigSlice';
 
@@ -29,9 +29,14 @@ const ColourBox = styled.div`
 
 const ColourPicker = (props) => {
 
-    const [color, setColor] = useState('#6B5ED9');
-    const [colorStart, setcolorStart] = useState('#6B5ED9');
-    const [colorEnd, setcolorEnd] = useState('#6B5ED9');
+  const canvasGradientBackgroundStart= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundStart);
+  const canvasGradientBackgroundEnd= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundEnd);
+  const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
+  const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
+
+    const [color, setColor] = useState(canvasBackGround);
+    const [colorStart, setcolorStart] = useState(canvasGradientBackgroundStart);
+    const [colorEnd, setcolorEnd] = useState(canvasGradientBackgroundEnd);
     // const [showPicker, setShowPicker] = useState(false);
     const [themeChecker, setthemeChecker] = useState(props.bgType);
     const dispatch = useDispatch();
@@ -62,12 +67,12 @@ const ColourPicker = (props) => {
         dispatch(changecanvasBackGround(color));
       }
       else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
-        setColor(e.target.value);
+        setcolorStart(e.target.value);
         console.log(e.target.value);
         dispatch(changecanvasBackgroundStart(color));
       }
       else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
-        setColor(e.target.value);
+        setcolorEnd(e.target.value);
         console.log(e.target.value);
         dispatch(changecanvasBackgroundEnd(color));
       }
@@ -75,22 +80,23 @@ const ColourPicker = (props) => {
 
 
     useEffect(()=>{
-      // if(props.bgType==='solid'){
-      //   dispatch(changecanvasBackGround(color));
-      // }
-      // else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
-      //   dispatch(changecanvasBackgroundStart(colorStart));
-      // }
-      // else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
-      //   dispatch(changecanvasBackgroundEnd(colorEnd));
-      // }
-    },[color]);
+      if(props.bgType==='solid'){
+        dispatch(changecanvasBackGround(color));
+      }
+      else if(props.bgType==='linear 0' || props.bgType==='radial 0'){
+        dispatch(changecanvasBackgroundStart(colorStart));
+      }
+      else if(props.bgType==='linear 1' || props.bgType==='radial 1'){
+        dispatch(changecanvasBackgroundEnd(colorEnd));
+      }
+    },[color,colorStart,colorEnd]);
+    // value={`${props.bgType==='solid' ? `${color}` : `${props.bgType==='linear 0' || props.bgType==='radial 0' ? `${colorStart}` : `${colorEnd}`}` }`}
 
   return (
     <div className='flex'>
       <ColourBox>
-        <input className='h-[20px] w-[20px] ml-3 mr-3 border-none p-0 border-[2px] forInputTypeColour' type='color' value={color} onChange={handleChangeForPicker}></input>
-        <input className='w-[100px] bg inputTheme' type='text' onChange={handleChangeForInput}  value={color}></input>
+        <input className='h-[20px] w-[20px] ml-3 mr-3 border-none p-0 border-[2px] forInputTypeColour' type='color' value={`${props.bgType==='solid' ? `${color}` : `${props.bgType==='linear 0' || props.bgType==='radial 0' ? `${colorStart}` : `${colorEnd}`}` }`} onChange={handleChangeForPicker}></input>
+        <input className='w-[100px] bg inputTheme' type='text' onChange={handleChangeForInput}  value={`${props.bgType==='solid' ? `${color}` : `${props.bgType==='linear 0' || props.bgType==='radial 0' ? `${colorStart}` : `${colorEnd}`}` }`}></input>
       </ColourBox>
     </div>
   )

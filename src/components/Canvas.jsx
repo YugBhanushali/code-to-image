@@ -29,14 +29,21 @@ import '../theme/prism-one-dark.css';
 // import '../theme/prism-darcula.css';
 import "../index.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { changecanvasPadding, changecodeContent, changesnippetFileName } from '../redux/CanvasConfigSlice.js';
+import { changecanvasPadding, changecodeContent, changesnippetFileName, changesnippetFontFamily } from '../redux/CanvasConfigSlice.js';
 import { StyledBackground } from '../styled/StyledCanvasBg';
 import { GlobelThemeContext } from '../Context/GlobelThemeContext';
-import { useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams} from 'react-router-dom';
 
 const Canvas = ({sharedRef}) => {
 
   
+  const dispatch = useDispatch();
+  const location =useLocation();
+  const queryParams=new URLSearchParams(location.search);
+  // const [searchParams, setSearchParams] = useSearchParams();
+
+  // dispatch(changecanvasPadding(queryParams.get('padding')));
+
 
   const canvasPadding=useSelector((state)=>state.canvasStyle.canvasPadding);
   const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
@@ -50,38 +57,31 @@ const Canvas = ({sharedRef}) => {
   const canvasGradientBackgroundEnd= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundEnd);
   const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
   const snippetFileName= useSelector((state)=>state.canvasStyle.snippetFileName);
-  const dispatch = useDispatch();
+  const canvasColourType= useSelector((state)=>state.canvasStyle.canvasColourType);
   const history = useNavigate();
 
-  console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
+  // console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
 
   const [code, setCode] = React.useState(
     `function add(a, b) {\n  return a + b;\n}`
   );
 
   useEffect(() => {
-    history({
-      pathname:'/',
-      search:`padding=${canvasPadding}&canvasBackground=${canvasBackGround.substring(1,canvasBackGround.length)}&fontFamily=${snippetFontFamily}&mode=${snippetMode}&codelanguage=${codeLanguage}&content=${codeContent}`
-    })
-    
-    
-  },[canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
-  
-  console.log(sharedRef.current);
+
+   },[canvasColourType,canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
   
 
   // const [bgTheme, setbgTheme] = useState('solid');
   const {bgTheme,setbgTheme} = useContext(GlobelThemeContext);
   return (
 
-    <StyledBackground backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
-      <div  className={`outerCanvas`}>
+    <StyledBackground  backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
+      <div id='my-node' className={`outerCanvas`}>
           {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
-          <div ref={sharedRef} className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
+          <div ref={sharedRef}  className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
               <div className={`max-h-unset ${snippetMode==='dark' ? 'codeBox' : 'codeBox-light'} min-w-[70%] min-h-[70%]`}>
               
-                  <div className='flex flex-row max-h-unset relative top-0 w-[100%] min-h-[10%] rounded-[25px] bg-transparent z-0'>
+                  <div className='flex flex-row max-h-unset relative top-0 w-[100%] min-h-[10px] rounded-[25px] bg-transparent z-0'>
 
                     <div className='flex flex-row max-h-unset relative top-0 h-[10%] rounded-[25px] bg-transparent z-0'> 
                       <div className={`relative mt-[13px] ml-[17px] w-[12px] h-[12px] rounded-full ${snippetMode==='dark' ? 'smallBtn' : 'smallBtn-light'}`}/>
@@ -89,26 +89,28 @@ const Canvas = ({sharedRef}) => {
                       <div className={`relative mt-[13px] ml-[8px] w-[12px] h-[12px] rounded-full ${snippetMode==='dark' ? 'smallBtn' : 'smallBtn-light'}`}/>
                     </div>
 
-                    <div className='relative text-center h-[100%] w-[90%] mr-[10%] bg-transparent mt-1 focus:border-none z-20'>
+                    <div className='relative text-center h-[100%] w-[90%] mr-[10%] bg-transparent mt-1 focus:border-none'>
                         <input value={snippetFileName} onChange={(e)=>{dispatch(changesnippetFileName(e.target.value))}} contentEditable='true' className={` bg-transparent ${snippetMode==='dark' ? 'text-[#efebebc7]' : 'text-[#565656c7]'} text-[13px] text-center editable-title`}></input>
                     </div>
 
                   </div>
 
-                  <div className='bg-transparent min-h-[50px] pt-4 pl-[16px] pr-[16px] pb-7 '>
-                      <Editor
-                          value={code}
-                          onValueChange={code => {setCode(code);dispatch(changecodeContent(code))}}
-                          highlight={code => highlight(code, languages[codeLanguage])}
-                          style={{
-                              fontFamily: `${snippetFontFamily}`,
-                              fontSize: 16,
-                              outline:'none',
-                              color:`${snippetMode==='dark' ? '#6AE970' : '#046A08'}`,
-                              fontWeight:'500'
-                          }}
-                          className='editable-code '
-                      />
+                  <div className='bg-transparent'>
+                    <div className='bg-transparent h-[100%] w-[100%]'>
+                        <Editor
+                            value={code}
+                            onValueChange={code => {setCode(code);dispatch(changecodeContent(code))}}
+                            highlight={code => highlight(code, languages[codeLanguage])}
+                            style={{
+                                fontFamily: `${snippetFontFamily}`,
+                                fontSize: 16,
+                                // outline:'none',
+                                color:`${snippetMode==='dark' ? '#6AE970' : '#046A08'}`,
+                                // fontWeight:'500'
+                                margin:'20px'
+                            }}
+                        />
+                    </div>
                   </div>
               </div>
           </div>

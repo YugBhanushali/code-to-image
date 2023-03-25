@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
-import { changecanvasPadding, changesnippetFontFamily } from "../../redux/CanvasConfigSlice";
+import React, { useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { DownloadFormatContext } from "../../Context/DownloadFormatContext";
+import { changecodeLanguage, changesnippetFontFamily } from "../../redux/CanvasConfigSlice";
+
 import "./Dropdown.css";
 
 const Icon = () => {
@@ -12,8 +13,9 @@ const Icon = () => {
   );
 };
 
-const DropdownPadding = ({ placeHolder,options }) => {
+const DropdownDownload = ({ placeHolder,options }) => {
 
+    const {canvasFormat, setcanvasFormat}=useContext(DownloadFormatContext);
     const [showMenu, setshowMenu] = useState(false);
     const [selectedValue, setselectedValue] = useState(null);
     const dispatch = useDispatch();
@@ -43,8 +45,7 @@ const DropdownPadding = ({ placeHolder,options }) => {
 
   const onItemClick = (option) =>{
         setselectedValue(option);
-        dispatch(changecanvasPadding(option.value));
-        
+        setcanvasFormat(option.value);  
   }
 
   const isSelected = (option) =>{
@@ -57,7 +58,7 @@ const DropdownPadding = ({ placeHolder,options }) => {
 
   return (
     <div className="dropdown-container ml-3">
-      <div onClick={handleInputClick} className="dropdown-input w-[90px]" >
+      <div onClick={handleInputClick} className="dropdown-input w-[120px]" >
         <div className="dropdown-selected-value">{getDisplay()}</div>
         <div className="dropdown-tools">
           <div className="dropdown-tool">
@@ -84,4 +85,4 @@ const DropdownPadding = ({ placeHolder,options }) => {
   );
 };
 
-export default DropdownPadding;
+export default DropdownDownload;

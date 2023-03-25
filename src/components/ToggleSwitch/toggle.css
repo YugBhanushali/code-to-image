@@ -1,9 +1,9 @@
 label {
     position: relative;
     display: inline-block;
-    width: 40px;
+    width: 35px;
     height: 20px;
-    margin-left: 30px;
+    margin-left: 10px;
   }
   
   .toggleSwitchInput {
@@ -37,10 +37,10 @@ label {
   .toggleSwitch:before {
     position: absolute;
     content: "";
-    height: 15px;
-    width: 15px;
-    left: 3px;
-    bottom: 2.6px;
+    height: 17px;
+    width: 17px;
+    left: 1.5px;
+    bottom: 1.5px;
     background-color: #fff;
     border-radius: 50%;
     transition: 0.3s;
@@ -51,6 +51,6 @@ label {
   }
   
   .toggleSwitchInput:checked + span:before {
-    transform: translateX(18px);
+    transform: translateX(15px);
   }
   
