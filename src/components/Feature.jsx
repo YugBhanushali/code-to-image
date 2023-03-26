@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import { FontFamilyList, PaddingList, ProgrammingLanguages, WidthList } from '../constants/Constants'
+import { FontFamilyList, PaddingList, ProgrammingLanguages, ThemeList, WidthList } from '../constants/Constants'
 import ColourPicker from './ColourPicker'
 import Dropdown from './Dropdownlist/Dropdown'
 import DropdownLanguage from './Dropdownlist/DropdownLanguage'
@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux'
 import { changesnippetMode } from '../redux/CanvasConfigSlice'
 import Download from './Download'
 import { VisibleContext } from '../Context/VisibleContext'
+import DropdownTheme from './Dropdownlist/DropdownTheme'
 
 
 
@@ -70,6 +71,11 @@ const Feature = ({sharedRef}) => {
                 <FeatureInnerBox  widthOfBox='200px' heightOfBox='67px'>
                     Width
                     <DropdownWidth placeHolder='800' options={WidthList}/>
+                </FeatureInnerBox>
+
+                <FeatureInnerBox  widthOfBox='200px' heightOfBox='67px'>
+                    Theme
+                    <DropdownTheme placeHolder='atom dark' options={ThemeList}/>
                 </FeatureInnerBox>
             </div>
         </div>

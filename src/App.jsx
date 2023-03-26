@@ -17,8 +17,12 @@ function App() {
       <VisibleContext.Provider value={{visiblity,setvisiblity}}>
         <div className="flex flex-col justify-center items-center">
           <GlobelThemeContext.Provider value={{bgTheme,setbgTheme}}>
+            <div className='flex justify-start lg:justify-center items-center sm:overflow-x-auto w-full px-8'>
               <Canvas sharedRef={myRef} />
+            </div>
+            <div className='flex justify-start lg:justify-center items-center sm:overflow-x-auto w-full '>
               <Feature sharedRef={myRef} />
+            </div>
           </GlobelThemeContext.Provider>
         </div>
           <ConfigTableVisible/>

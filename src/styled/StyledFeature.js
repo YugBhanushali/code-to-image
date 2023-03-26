@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 const FeatureOuterBox = styled.div`
-    ${'' /* position: fixed; */}
+    position: fixed;
+    margin:30px;
     display:flex-col;
     ${'' /* z-index:5; */}
-    margin:auto;
+    ${'' /* margin:auto; */}
     width:800px;
-    bottom: 50px;
+    bottom: 0px;
     ${'' /* align-items: center; */}
     background: rgba(159, 159, 159, 0.24);
     border: 1px solid rgba(178, 168, 168, 0.52);

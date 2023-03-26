@@ -51,6 +51,8 @@ const StyledBackground= styled.div`
     align-items: center;
     min-height: 100px;
     margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
     width:${(props)=>props.withOfCanvas};
   }
 `

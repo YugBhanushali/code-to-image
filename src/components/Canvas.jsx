@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
 
+
+import 'prismjs/components/prism-clike';
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-java";
-// import "prismjs/components/prism-cpp";
 import "prismjs/components/prism-ruby";
-// import "prismjs/components/prism-php";
 import "prismjs/components/prism-swift";
 import "prismjs/components/prism-kotlin";
 import "prismjs/components/prism-typescript";
@@ -19,20 +18,23 @@ import "prismjs/components/prism-rust";
 import "prismjs/components/prism-lua";
 import "prismjs/components/prism-perl";
 import "prismjs/components/prism-haskell";
-// import "prismjs/components/prism-objectivec";
-// import "prismjs/components/prism-shell";
 import "prismjs/components/prism-dart";
 import "prismjs/components/prism-sql";
 
-// import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
-import '../theme/prism-one-dark.css';
+import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
+// import '../theme/prism-material-dark.css';
 // import '../theme/prism-darcula.css';
+
 import "../index.css";
+
+// import '../theme/prism-material-dark.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent, changesnippetFileName, changesnippetFontFamily } from '../redux/CanvasConfigSlice.js';
 import { StyledBackground } from '../styled/StyledCanvasBg';
 import { GlobelThemeContext } from '../Context/GlobelThemeContext';
 import { useLocation, useNavigate, useSearchParams} from 'react-router-dom';
+import StyledTheme from '../styled/StyledTheme';
 
 const Canvas = ({sharedRef}) => {
 
@@ -58,6 +60,7 @@ const Canvas = ({sharedRef}) => {
   const canvasGradientBackgroundAngle= useSelector((state)=>state.canvasStyle.canvasGradientBackgroundAngle);
   const snippetFileName= useSelector((state)=>state.canvasStyle.snippetFileName);
   const canvasColourType= useSelector((state)=>state.canvasStyle.canvasColourType);
+  const FontTheme= useSelector((state)=>state.canvasStyle.FontTheme);
   const history = useNavigate();
 
   // console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
@@ -67,17 +70,15 @@ const Canvas = ({sharedRef}) => {
   );
 
   useEffect(() => {
-
-   },[canvasColourType,canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
+      console.log(FontTheme);
+   },[FontTheme,canvasColourType,canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
   
 
-  // const [bgTheme, setbgTheme] = useState('solid');
   const {bgTheme,setbgTheme} = useContext(GlobelThemeContext);
   return (
 
     <StyledBackground  backgroundColour={canvasBackGround} Padding={canvasPadding} withOfCanvas={canvasWidth} gradientStart={canvasGradientBackgroundStart} gradientEnd={canvasGradientBackgroundEnd} gradientAngle={canvasGradientBackgroundAngle}>
       <div id='my-node' className={`outerCanvas`}>
-          {/* <div className={`flex max-h-unset justify-center items-center w-[100%] min-h-[100%] rounded-[0px] bg-gradient-to-l from-[#8650fa] to-[#ff98c9] p-[${canvasPadding}px]`}> */}
           <div ref={sharedRef}  className={`${bgTheme==='solid' ? 'canThemeSolid' : `${bgTheme === 'linear' ? 'canThemeLinear' : 'canThemeRadial'}` }`}>
               <div className={`max-h-unset ${snippetMode==='dark' ? 'codeBox' : 'codeBox-light'} min-w-[70%] min-h-[70%]`}>
               
@@ -96,7 +97,8 @@ const Canvas = ({sharedRef}) => {
                   </div>
 
                   <div className='bg-transparent'>
-                    <div className='bg-transparent h-[100%] w-[100%]'>
+                  <StyledTheme>
+                    <div className={`${FontTheme} bg-transparent h-[100%] w-[100%]`}>
                         <Editor
                             value={code}
                             onValueChange={code => {setCode(code);dispatch(changecodeContent(code))}}
@@ -104,13 +106,13 @@ const Canvas = ({sharedRef}) => {
                             style={{
                                 fontFamily: `${snippetFontFamily}`,
                                 fontSize: 16,
-                                // outline:'none',
                                 color:`${snippetMode==='dark' ? '#6AE970' : '#046A08'}`,
-                                // fontWeight:'500'
-                                margin:'20px'
+                                margin:'20px',
+                                fontStyle:'normal'
                             }}
                         />
                     </div>
+                  </StyledTheme>
                   </div>
               </div>
           </div>

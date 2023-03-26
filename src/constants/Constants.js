@@ -57,6 +57,46 @@ const FormatList = [
     {label:'SVG',value:'.svg'},
     {label:'JPEG',value:'.jpeg'},
 ]
-  
 
-export {FontFamilyList,PaddingList,ProgrammingLanguages,WidthList,FormatList};
+const ThemeList = [
+    {label:'a11y dark',value:'prism-a11y-dark'},
+    {label:'atom dark',value:'prism-atom-dark'},
+    {label:'base16 ateliersulphurpool light',value:'prism-base16-ateliersulphurpool-light'},
+    {label:'cb',value:'prism-cb'},
+    {label:'coldark cold',value:'prism-coldark-cold'},
+    {label:'coldark dark',value:'prism-coldark-dark'},
+    {label:'coy without shadows',value:'prism-coy-without-shadows'},
+    {label:'custom',value:'prism-custom'},
+    {label:'darcula',value:'prism-darcula'},
+    {label:'dracula',value:'prism-dracula'},
+    {label:'duotone dark',value:'prism-duotone-dark'},
+    {label:'duotone earth',value:'prism-duotone-earth'},
+    {label:'duotone forest',value:'prism-duotone-forest'},
+    {label:'duotone light',value:'prism-duotone-light'},
+    {label:'duotone sea',value:'prism-duotone-sea'},
+    {label:'duotone space',value:'prism-duotone-space'},
+    {label:'ghcolors',value:'prism-ghcolors'},
+    {label:'gruvbox dark',value:'prism-gruvbox-dark'},
+    {label:'gruvbox light',value:'prism-gruvbox-light'},
+    {label:'holi theme',value:'prism-holi-theme'},
+    {label:'hopscotch',value:'prism-hopscotch'},
+    {label:'laserwave',value:'prism-laserwave'},
+    {label:'lucario',value:'prism-lucario'},
+    {label:'material dark',value:'prism-material-dark'},
+    {label:'material light',value:'prism-material-light'},
+    {label:'material oceanic',value:'prism-material-oceanic'},
+    {label:'night owl',value:'prism-night-owl'},
+    {label:'nord',value:'prism-nord'},
+    {label:'one dark',value:'prism-one-dark'},
+    {label:'one light',value:'prism-one-light'},
+    {label:'pojoaque',value:'prism-pojoaque'},
+    {label:'shades of purple',value:'prism-shades-of-purple'},
+    {label:'solarized dark atom',value:'prism-solarized-dark-atom'},
+    {label:'synthwave84',value:'prism-synthwave84'},
+    {label:'vs',value:'prism-vs'},
+    {label:'vsc dark plus',value:'prism-vsc-dark-plus'},
+    {label:'xonokai',value:'prism-xonokai'},
+    {label:'z touch',value:'prism-z-touch'},
+];
+
+export {ThemeList,FontFamilyList,PaddingList,ProgrammingLanguages,WidthList,FormatList};
