@@ -11,23 +11,12 @@ import { useReactToPrint } from 'react-to-print';
 import DropdownDownload from './Dropdownlist/DropdownDownload';
 import { FormatList, WidthList } from '../constants/Constants';
 import { DownloadFormatContext } from '../Context/DownloadFormatContext';
+import confetti from 'canvas-confetti';
 
-// export const ref = useRef<HTMLDivElement>(null);
 const Download = ({sharedRef}) => {
 
     const [canvasFormat, setcanvasFormat] = useState('.png');
     const snippetFileName = useSelector((state)=>state.canvasStyle.snippetFileName);
-
-    // useEffect(() => {
-    //   console.log(snippetFileName);
-    // }, [canvasFormat,snippetFileName]);
-
-    // useEffect(() => {
-    //   const link = document.createElement('link');
-    //   link.href = 'https://fonts.googleapis.com/css2?family=Sono:wght@500&display=swap';
-    //   link.rel = 'stylesheet';
-    //   document.head.appendChild(link);
-    // }, []);
 
     const onButtonClickForPng = useCallback( async () => {
         if (sharedRef.current === null) {
@@ -37,7 +26,7 @@ const Download = ({sharedRef}) => {
         await toPng(sharedRef.current, { cacheBust: true, })
           .then((dataUrl) => {
             const link = document.createElement('a')
-            link.download = `${snippetFileName}`
+            link.download = `${snippetFileName.split(".")[0]}`
             link.href = dataUrl
             link.click()
           })
@@ -45,18 +34,6 @@ const Download = ({sharedRef}) => {
             console.log(err)
           })
     }, [sharedRef,snippetFileName]);
-
-    // const onButtonClickForPng = ()=>{
-    //   html2canvas(sharedRef.current)
-    //   .then(function (canvas) {
-    //     const link = document.createElement('a');
-    //     link.download = 'my-image.png';
-    //     link.href = canvas.toDataURL();
-    //     link.click();
-    //   });
-    // }
-
-
 
     const onButtonClickForJpeg = useCallback(() => {
       if (sharedRef.current === null) {
@@ -66,7 +43,7 @@ const Download = ({sharedRef}) => {
       toJpeg(sharedRef.current, { cacheBust: true, })
         .then((dataUrl) => {
           const link = document.createElement('a')
-          link.download = `${snippetFileName}`
+          link.download = `${snippetFileName.split(".")[0]}`
           link.href = dataUrl
           link.click()
         })
@@ -83,7 +60,7 @@ const Download = ({sharedRef}) => {
       toSvg(sharedRef.current, { cacheBust: true})
         .then((dataUrl) => {
           const link = document.createElement('a')
-          link.download = `${snippetFileName}`
+          link.download = `${snippetFileName.split(".")[0]}`
           link.href = dataUrl
           link.click()
         })
@@ -120,8 +97,15 @@ const Download = ({sharedRef}) => {
           </div>
         </DownloadFormatContext.Provider>
 
-          <div className='cursor-pointer' onClick={handleFormatClick} >
-            <FeatureInnerBox withOfBox='200px' heightOfBox='52px' >
+          <div className='cursor-pointer' onClick={()=>{
+              handleFormatClick();
+              confetti({
+                particleCount: 500,
+                spread: 200000,
+                origin: { y: -0.2 }
+              });
+            }}>
+            <FeatureInnerBox className='flex text-center justify-center items-center hover:bg-black' withOfBox='227px' heightOfBox='59px' >
                 Export
             </FeatureInnerBox>
           </div>

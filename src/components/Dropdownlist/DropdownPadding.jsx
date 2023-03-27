@@ -17,6 +17,11 @@ const DropdownPadding = ({ placeHolder,options }) => {
     const [showMenu, setshowMenu] = useState(false);
     const [selectedValue, setselectedValue] = useState(null);
     const dispatch = useDispatch();
+    const location =useLocation();
+    const navigate= useNavigate(); 
+    const canvasPadding=useSelector((state)=>state.canvasStyle.canvasPadding);
+    const queryParams=new URLSearchParams(location.search);
+    const queryParamsSetter = new URLSearchParams(location.search);
 
     useEffect(() => {
         const handler = () => setshowMenu(false);
@@ -44,7 +49,6 @@ const DropdownPadding = ({ placeHolder,options }) => {
   const onItemClick = (option) =>{
         setselectedValue(option);
         dispatch(changecanvasPadding(option.value));
-        
   }
 
   const isSelected = (option) =>{

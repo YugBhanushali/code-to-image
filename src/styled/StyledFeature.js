@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const FeatureOuterBox = styled.div`
-    position: fixed;
-    margin:30px;
+    ${'' /* position: fixed; */}
+    position: ${(props)=>props.position};
+    margin:20px;
     display:flex-col;
     ${'' /* z-index:5; */}
     ${'' /* margin:auto; */}

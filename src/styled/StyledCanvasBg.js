@@ -45,6 +45,7 @@ const StyledBackground= styled.div`
 
   .outerCanvas{
     display: flex;
+    overflow-x:auto;
     max-height: unset;
     background:'white';
     justify-content: center;
