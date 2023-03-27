@@ -90,7 +90,7 @@ const Download = ({sharedRef}) => {
         </div> */}
         <DownloadFormatContext.Provider value={{canvasFormat,setcanvasFormat}}>
           <div className='cursor-pointer flex'>
-            <FeatureInnerBox withOfBox='227px' heightOfBox='52px' >
+            <FeatureInnerBox withOfBox='229px' heightOfBox='52px' >
                 Format
               <DropdownDownload placeHolder='PNG' options={FormatList}/>
             </FeatureInnerBox>

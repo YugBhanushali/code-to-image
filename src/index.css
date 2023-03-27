@@ -1,9 +1,59 @@
+/* { label:"Consolas", value:'Consolas, monospace'},
+
+
+
+{ label:"Monaco", value:'Monaco, monospace'},
+{ label:"Courier New", value:'Courier New, monospace'},
+{ label:"Menlo", value:'Menlo, monospace'},
+{ label:"DejaVu Sans Mono", value:'DejaVu Sans Mono, monospace'},
+{ label:"Hack", value:'Hack, monospace'},
+{ label:"JetBrains Mono", value:'JetBrains Mono, monospace'},
+{ label:"Liberation Mono", value:'Liberation Mono, monospace'},
+{ label:"Lucida Console", value:'Lucida Console, monospace'},
+{ label:"PragmataPro", value:'PragmataPro, monospace'},
+{ label:"Roboto Mono", value:'Roboto Mono, monospace'},
+{ label:"Terminus", value:'Terminus, monospace'},
+{ label:"Ubuntu Mono", value:'Ubuntu Mono, monospace'},
+{ label:"Iosevka", value:'Iosevka, monospace'},
+{ label:"Anonymous Pro", value:'Anonymous Pro, monospace'},
+{ label:"Droid Sans Mono", value:'Droid Sans Mono, monospace'},
+{ label:"Input Mono", value:'Input Mono, monospace'}, */
+
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+/* import Lucida Console from goolgle fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lucida+Console&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Liberation+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hack&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Consolas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PragmataPro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Terminus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iosevka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Input+Mono&display=swap');
 
 @tailwind base;
 @tailwind components;

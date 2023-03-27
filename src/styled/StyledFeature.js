@@ -8,7 +8,7 @@ const FeatureOuterBox = styled.div`
     ${'' /* z-index:5; */}
     ${'' /* margin:auto; */}
     width:800px;
-    bottom: 0px;
+    bottom: 20px;
     ${'' /* align-items: center; */}
     background: rgba(159, 159, 159, 0.24);
     border: 1px solid rgba(178, 168, 168, 0.52);

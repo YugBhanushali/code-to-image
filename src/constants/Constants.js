@@ -1,3 +1,20 @@
+// @import url('https://fonts.googleapis.com/css2?family=Lucida+Console&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Liberation+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Hack&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Courier+New&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Consolas&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=PragmataPro&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Terminus&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Iosevka&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Input+Mono&display=swap');
 const FontFamilyList = [
     { label:"Source code", value:`'Source code pro', monospace`},
     { label:"JetBrains", value:`'JetBrains Mono', monospace`},
@@ -6,6 +23,30 @@ const FontFamilyList = [
     { label:"Space Mono", value:`'Space Mono', sans-serif`},
     { label:"Poppins", value:`'Poppins', sans-serif`},
     { label:"Fira code", value:`'Fira Mono', monospace`},
+    { label:"Ubuntu", value:`'Ubuntu', sans-serif`},
+    { label:"Montserrat", value:`'Montserrat', sans-serif`},
+    { label:"Oswald", value:`'Oswald', sans-serif`},
+    { label:"Quicksand", value:`'Quicksand', sans-serif`},
+    { label:"Roboto Mono", value:`'Roboto Mono', monospace`},
+    { label:"Rubik", value:`'Rubik', sans-serif`},
+    { label:"Ubuntu Mono", value:`'Ubuntu Mono', monospace`},
+    { label:"Work Sans", value:`'Work Sans', sans-serif`},
+    { label:"Zilla Slab", value:`'Zilla Slab', serif`},
+    { label:"Lucida Console", value:`'Lucida Console', monospace`},
+    { label:"Liberation Mono", value:`'Liberation Mono', monospace`},
+    { label:"Hack", value:`'Hack', monospace`},
+    { label:"DejaVu Sans Mono", value:`'DejaVu Sans Mono', monospace`},
+    { label:"Courier New", value:`'Courier New', monospace`},
+    { label:"IBM Plex Mono", value:`'IBM Plex Mono', monospace`},
+    { label:"Fira Code", value:`'Fira Code', monospace`},
+    { label:"Inconsolata", value:`'Inconsolata', monospace`},
+    { label:"Consolas", value:`'Consolas', monospace`},
+    { label:"Pragmata Pro", value:`'Pragmata Pro', monospace`},
+    { label:"Terminus", value:`'Terminus', monospace`},
+    { label:"Iosevka", value:`'Iosevka', monospace`},
+    { label:"Anonymous Pro", value:`'Anonymous Pro', monospace`},
+    { label:"Droid Sans Mono", value:`'Droid Sans Mono', monospace`},
+    { label:"Input Mono", value:`'Input Mono', monospace`},
 ];
 
 const PaddingList = [

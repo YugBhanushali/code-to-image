@@ -4,11 +4,13 @@ import logo2 from '../assets/logo/A4 - 2.png';
 import { AiFillGithub } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import {TbSourceCode} from 'react-icons/tb'
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [logo, setLogo] = React.useState(true);
     const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
     const [mainLogo, setmainLogo] = useState(false);
+    const history = useNavigate();
     useEffect(() => {
       
     }, [canvasBackGround,mainLogo])
@@ -21,19 +23,21 @@ const Navbar = () => {
           style={{
                 height:'44px',
                 width:'44px',
-                // color:`${mainLogo===true ? `${canvasBackGround}` : '#6B5ED9'}}`
                 color:`${mainLogo===true ? `${canvasBackGround}` : `#6B5ED9`}`
             }}
         />
       </div>
-      <div className='fixed top-6 right-5 cursor-pointer'>
-        <AiFillGithub
-            style={{
-                height:'36px',
-                width:'36px',
-                color:`${canvasBackGround}`
-            }}
-        />
+      <div className='fixed top-4 right-5 cursor-pointer'>
+        <NavLink to='https://github.com/YugBhanushali/code-to-image'>
+
+          <AiFillGithub className='cursor-pointer'
+              style={{
+                  height:'40px',
+                  width:'40px',
+                  color:`${canvasBackGround}`
+              }}
+          />
+        </NavLink>
       </div>
     </div>
   )

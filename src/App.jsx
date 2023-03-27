@@ -3,6 +3,7 @@ import Canvas from './components/Canvas'
 import ChangePaddingBtn from './components/ChangePaddingBtn'
 import ConfigTableVisible from './components/ConfigTableVisible'
 import Feature from './components/Feature'
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { GlobelThemeContext } from './Context/GlobelThemeContext'
 import { VisibleContext } from './Context/VisibleContext'
@@ -26,6 +27,7 @@ function App() {
               <Feature sharedRef={myRef} />
             </div>
           </GlobelThemeContext.Provider>
+          <Footer/>
         </div>
           <ConfigTableVisible/>
       </VisibleContext.Provider>
