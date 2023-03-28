@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { GlobelThemeContext } from './Context/GlobelThemeContext'
 import { VisibleContext } from './Context/VisibleContext'
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
         </div>
           <ConfigTableVisible/>
       </VisibleContext.Provider>
+      <Analytics/>
     </>
   )
 }
