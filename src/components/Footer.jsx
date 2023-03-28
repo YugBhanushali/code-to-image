@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div className='fixed bottom-3'>
       <div style={{fontFamily:'JetBrains Mono'}} className='text-[#BBADAD] flex justify-center items-center'>
-        <div className='cursor-pointer'>
+        <div className='cursor-pointer text-[14px]'>
             Made by <NavLink to='https://github.com/YugBhanushali'><span className={`hover:text-[white]`}>Yug Bhanushali</span></NavLink> 
         </div>
         <div className='flex justify-center items-center'>
