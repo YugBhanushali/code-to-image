@@ -14,10 +14,10 @@ const Footer = () => {
       
     },[canvasBackGround,mainLogo1,mainLogo2,mainLogo3])
   return (
-    <div className='absolute bottom-2'>
+    <div className='absolute bottom-3'>
       <div style={{fontFamily:'JetBrains Mono'}} className='text-[#BBADAD] flex justify-center items-center'>
         <div className='cursor-pointer'>
-            Made by <NavLink to='https://github.com/YugBhanushali'><span>Yug Bhanushali</span></NavLink> 
+            Made by <NavLink to='https://github.com/YugBhanushali'><span className={`hover:text-[white]`}>Yug Bhanushali</span></NavLink> 
         </div>
         <div className='flex justify-center items-center'>
             <NavLink to='https://twitter.com/TheYug03'>

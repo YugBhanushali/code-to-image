@@ -21,13 +21,10 @@ import "prismjs/components/prism-haskell";
 import "prismjs/components/prism-dart";
 import "prismjs/components/prism-sql";
 
-import 'prismjs/themes/prism-funky.css'; //Example style, you can use another
-// import '../theme/prism-material-dark.css';
-// import '../theme/prism-darcula.css';
+import "prismjs/components/prism-css";
 
 import "../index.css";
 
-// import '../theme/prism-material-dark.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { changecanvasPadding, changecodeContent, changesnippetFileName, changesnippetFontFamily } from '../redux/CanvasConfigSlice.js';
@@ -40,18 +37,12 @@ const Canvas = ({sharedRef}) => {
 
   
   const dispatch = useDispatch();
-  const location =useLocation();
-  const queryParams=new URLSearchParams(location.search);
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  // dispatch(changecanvasPadding(queryParams.get('padding')));
-
 
   const canvasPadding=useSelector((state)=>state.canvasStyle.canvasPadding);
   const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
   const snippetFontFamily=useSelector((state)=>state.canvasStyle.snippetFontFamily);
   const snippetMode=useSelector((state)=>state.canvasStyle.snippetMode);
-  // const snippetTheme=useSelector((state)=>state.canvasStyle.snippetTheme);
+  const snippetTheme=useSelector((state)=>state.canvasStyle.snippetTheme);
   const codeLanguage=useSelector((state)=>state.canvasStyle.codeLanguage);
   const codeContent=useSelector((state)=>state.canvasStyle.codeContent);
   const canvasWidth = useSelector((state)=>state.canvasStyle.canvasWidth);
@@ -61,16 +52,14 @@ const Canvas = ({sharedRef}) => {
   const snippetFileName= useSelector((state)=>state.canvasStyle.snippetFileName);
   const canvasColourType= useSelector((state)=>state.canvasStyle.canvasColourType);
   const FontTheme= useSelector((state)=>state.canvasStyle.FontTheme);
-  const history = useNavigate();
 
-  // console.log(canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle);
 
   const [code, setCode] = React.useState(
     `function add(a, b) {\n  return a + b;\n}`
   );
 
   useEffect(() => {
-      console.log(FontTheme);
+    
    },[FontTheme,canvasColourType,canvasBackGround,canvasPadding,snippetFontFamily,snippetMode,codeLanguage,codeContent,canvasWidth,canvasGradientBackgroundStart,canvasGradientBackgroundEnd,canvasGradientBackgroundAngle,snippetFileName]);
   
 

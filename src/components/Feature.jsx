@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react'
-import styled from 'styled-components'
 import { FontFamilyList, PaddingList, ProgrammingLanguages, ThemeList, WidthList } from '../constants/Constants'
-import ColourPicker from './ColourPicker'
 import Dropdown from './Dropdownlist/Dropdown'
 import DropdownLanguage from './Dropdownlist/DropdownLanguage'
 import DropdownPadding from './Dropdownlist/DropdownPadding'
@@ -17,7 +15,7 @@ import { changesnippetMode } from '../redux/CanvasConfigSlice'
 import Download from './Download'
 import { VisibleContext } from '../Context/VisibleContext'
 import DropdownTheme from './Dropdownlist/DropdownTheme'
-import confetti from 'canvas-confetti'
+import DropdownChakra from './Dropdownlist/DropdownChakra'
 
 
 const Feature = ({sharedRef}) => {
@@ -33,14 +31,17 @@ const Feature = ({sharedRef}) => {
                 <FeatureInnerBox withOfBox='251px'>
                     Font
                     <Dropdown placeHolder='Select...' options={FontFamilyList}/>
+                    {/* <DropdownChakra width='md' placeholder='Select...' optionsList={FontFamilyList} typeList='font'/> */}
                 </FeatureInnerBox>
                 <FeatureInnerBox withOfBox='180px'>
                     Padding
                     <DropdownPadding placeHolder='30' options={PaddingList}/>
+                    {/* <DropdownChakra width='unset' placeholder='30' optionsList={PaddingList} typeList='padding'/> */}
                 </FeatureInnerBox>
                 <FeatureInnerBox withOfBox='220px'>
                     Language
                     <DropdownLanguage placeHolder='JavaScript' options={ProgrammingLanguages}/>
+                    {/* <DropdownChakra width='sm' placeholder='JavaScript' optionsList={ProgrammingLanguages} typeList='language'/> */}
                 </FeatureInnerBox>
                 <FeatureInnerBox withOfBox='200px'>
                     Mode
@@ -61,8 +62,6 @@ const Feature = ({sharedRef}) => {
                     </ColourTypeContext.Provider>
                     <ColourTypeContext.Provider value={{colourType,setcolourType}}>
                         <FeatureInnerBox heightOfBox='200px'>
-                            {/* <SolidColour/> */}
-                            {/* <GradientColour/> */}
                             {colourType === 'solid' ? <SolidColour/> : <GradientColour/>}
                         </FeatureInnerBox>
                     </ColourTypeContext.Provider>
@@ -72,6 +71,7 @@ const Feature = ({sharedRef}) => {
                     <FeatureInnerBox  withOfBox='227px' heightOfBox='67px'>
                         Theme
                         <DropdownTheme placeHolder='atom dark' options={ThemeList}/>
+                        {/* <DropdownChakra width='sm' placeholder='One dark' optionsList={ThemeList} typeList='theme'/> */}
                     </FeatureInnerBox>
 
                     <FeatureInnerBox  withOfBox='227px' heightOfBox='67px'>

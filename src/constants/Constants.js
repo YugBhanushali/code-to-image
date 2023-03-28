@@ -1,20 +1,3 @@
-// @import url('https://fonts.googleapis.com/css2?family=Lucida+Console&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Liberation+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Hack&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Courier+New&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Consolas&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=PragmataPro&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Terminus&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Iosevka&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Input+Mono&display=swap');
 const FontFamilyList = [
     { label:"Source code", value:`'Source code pro', monospace`},
     { label:"JetBrains", value:`'JetBrains Mono', monospace`},
@@ -22,7 +5,7 @@ const FontFamilyList = [
     { label:"Sono", value:`'Sono', sans-serif`},
     { label:"Space Mono", value:`'Space Mono', sans-serif`},
     { label:"Poppins", value:`'Poppins', sans-serif`},
-    { label:"Fira code", value:`'Fira Mono', monospace`},
+    { label:"Fira Mono", value:`'Fira Mono', monospace`},
     { label:"Ubuntu", value:`'Ubuntu', sans-serif`},
     { label:"Montserrat", value:`'Montserrat', sans-serif`},
     { label:"Oswald", value:`'Oswald', sans-serif`},
@@ -58,27 +41,23 @@ const PaddingList = [
 ]
 
 const ProgrammingLanguages = [
-    { label: "JavaScript", name: "javascript" },
-    { label: "Python", name: "python" },
-    { label: "Java", name: "java" },
-    // { label: "C++", name: "c++" },
-    { label: "Ruby", name: "ruby" },
-    { label: "PHP", name: "php" },
-    { label: "Swift", name: "swift" },
-    { label: "Kotlin", name: "kotlin" },
-    { label: "TypeScript", name: "typescript" },
-    { label: "C#", name: "c#" },
-    { label: "Go", name: "go" },
-    { label: "Scala", name: "scala" },
-    { label: "Rust", name: "rust" },
-    { label: "Lua", name: "lua" },
-    { label: "Perl", name: "perl" },
-    { label: "Haskell", name: "haskell" },
-    // { label: "Objective-C", name: "objective-c" },
-    // { label: "Shell", name: "shell" },
-    { label: "Dart", name: "dart" },
-    { label: "SQL", name: "sql" },
-    // { label: "HTML", name: "html" },
+    { label: "JavaScript", value: "javascript" },
+    { label: "Python", value: "python" },
+    { label: "Java", value: "java" },
+    { label: "Ruby", value: "ruby" },
+    { label: "PHP", value: "php" },
+    { label: "Swift", value: "swift" },
+    { label: "Kotlin", value: "kotlin" },
+    { label: "TypeScript", value: "typescript" },
+    { label: "C#", value: "c#" },
+    { label: "Go", value: "go" },
+    { label: "Scala", value: "scala" },
+    { label: "Rust", value: "rust" },
+    { label: "Lua", value: "lua" },
+    { label: "Perl", value: "perl" },
+    { label: "Haskell", value: "haskell" },
+    { label: "Dart", value: "dart" },
+    { label: "SQL", value: "sql" },
   ];
 
 const WidthList = [
@@ -100,44 +79,42 @@ const FormatList = [
 ]
 
 const ThemeList = [
-    {label:'a11y dark',value:'prism-a11y-dark'},
-    {label:'atom dark',value:'prism-atom-dark'},
-    {label:'Sulpher light',value:'prism-base16-ateliersulphurpool-light'},
-    {label:'cb',value:'prism-cb'},
-    {label:'coldark cold',value:'prism-coldark-cold'},
-    {label:'coldark dark',value:'prism-coldark-dark'},
-    {label:'coy without shadows',value:'prism-coy-without-shadows'},
-    {label:'custom',value:'prism-custom'},
-    {label:'darcula',value:'prism-darcula'},
-    {label:'dracula',value:'prism-dracula'},
-    {label:'duotone dark',value:'prism-duotone-dark'},
-    {label:'duotone earth',value:'prism-duotone-earth'},
-    {label:'duotone forest',value:'prism-duotone-forest'},
-    {label:'duotone light',value:'prism-duotone-light'},
-    {label:'duotone sea',value:'prism-duotone-sea'},
-    {label:'duotone space',value:'prism-duotone-space'},
-    {label:'ghcolors',value:'prism-ghcolors'},
-    {label:'gruvbox dark',value:'prism-gruvbox-dark'},
-    {label:'gruvbox light',value:'prism-gruvbox-light'},
-    {label:'holi theme',value:'prism-holi-theme'},
-    {label:'hopscotch',value:'prism-hopscotch'},
-    {label:'laserwave',value:'prism-laserwave'},
-    {label:'lucario',value:'prism-lucario'},
-    {label:'material dark',value:'prism-material-dark'},
-    {label:'material light',value:'prism-material-light'},
-    // {label:'material oceanic',value:'prism-material-oceanic'},
-    {label:'night owl',value:'prism-night-owl'},
-    {label:'nord',value:'prism-nord'},
-    {label:'one dark',value:'prism-one-dark'},
-    {label:'one light',value:'prism-one-light'},
-    {label:'pojoaque',value:'prism-pojoaque'},
-    {label:'shades of purple',value:'prism-shades-of-purple'},
-    {label:'solarized dark atom',value:'prism-solarized-dark-atom'},
-    // {label:'synthwave84',value:'prism-synthwave84'},
-    {label:'vs',value:'prism-vs'},
-    {label:'vsc dark plus',value:'prism-vsc-dark-plus'},
-    {label:'xonokai',value:'prism-xonokai'},
-    {label:'z touch',value:'prism-z-touch'},
+    {label:'A11y Dark',value:'prism-a11y-dark'},
+    {label:'Atom Dark',value:'prism-atom-dark'},
+    {label:'Sulpher Light',value:'prism-base16-ateliersulphurpool-light'},
+    {label:'Cb',value:'prism-cb'},
+    {label:'Coldark Cold',value:'prism-coldark-cold'},
+    {label:'Coldark Dark',value:'prism-coldark-dark'},
+    {label:'Coy Without Shadows',value:'prism-coy-without-shadows'},
+    {label:'Custom',value:'prism-custom'},
+    {label:'Darcula',value:'prism-darcula'},
+    {label:'Dracula',value:'prism-dracula'},
+    {label:'Duotone Dark',value:'prism-duotone-dark'},
+    {label:'Duotone Earth',value:'prism-duotone-earth'},
+    {label:'Duotone Forest',value:'prism-duotone-forest'},
+    {label:'Duotone Light',value:'prism-duotone-light'},
+    {label:'Duotone Sea',value:'prism-duotone-sea'},
+    {label:'Duotone Space',value:'prism-duotone-space'},
+    {label:'Ghcolors',value:'prism-ghcolors'},
+    {label:'Gruvbox Dark',value:'prism-gruvbox-dark'},
+    {label:'Gruvbox Light',value:'prism-gruvbox-light'},
+    {label:'Holi Theme',value:'prism-holi-theme'},
+    {label:'Hopscotch',value:'prism-hopscotch'},
+    {label:'Laserwave',value:'prism-laserwave'},
+    {label:'Lucario',value:'prism-lucario'},
+    {label:'Material Dark',value:'prism-material-dark'},
+    {label:'Material Light',value:'prism-material-light'},
+    {label:'Night Owl',value:'prism-night-owl'},
+    {label:'Nord',value:'prism-nord'},
+    {label:'One Dark',value:'prism-one-dark'},
+    {label:'One Light',value:'prism-one-light'},
+    {label:'Pojoaque',value:'prism-pojoaque'},
+    {label:'Shades Of Purple',value:'prism-shades-of-purple'},
+    {label:'Solarized Dark Atom',value:'prism-solarized-dark-atom'},
+    {label:'Vs',value:'prism-vs'},
+    {label:'Vsc Dark Plus',value:'prism-vsc-dark-plus'},
+    {label:'Xonokai',value:'prism-xonokai'},
+    {label:'Z Touch',value:'prism-z-touch'},
 ];
 
 export {ThemeList,FontFamilyList,PaddingList,ProgrammingLanguages,WidthList,FormatList};

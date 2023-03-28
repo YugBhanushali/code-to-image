@@ -44,7 +44,7 @@ const DropdownLanguage
 
   const onItemClick = (option) =>{
         setselectedValue(option);
-        dispatch(changecodeLanguage(option.name));   
+        dispatch(changecodeLanguage(option.value));   
   }
 
   const isSelected = (option) =>{
@@ -52,7 +52,7 @@ const DropdownLanguage
         return false;
     }
 
-    return selectedValue.name === option.name;
+    return selectedValue.value === option.value;
   };
 
   return (
