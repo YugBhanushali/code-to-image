@@ -58,7 +58,7 @@ const DropdownDownload = ({ placeHolder,options }) => {
 
   return (
     <div className="dropdown-container ml-3">
-      <div onClick={handleInputClick} className="dropdown-input w-[120px]" >
+      <div onClick={handleInputClick} className="dropdown-input w-[145px]" >
         <div className="dropdown-selected-value">{getDisplay()}</div>
         <div className="dropdown-tools">
           <div className="dropdown-tool">
