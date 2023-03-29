@@ -27,8 +27,10 @@ function App() {
             <div className='flex m-[100px] justify-start lg:justify-center items-center sm:overflow-x-auto w-full '>
               <Feature sharedRef={myRef} />
             </div>
+            <div className='lg:fixed lg:bottom-2'>
+              <Footer/>
+            </div>
           </GlobelThemeContext.Provider>
-          <Footer/>
         </div>
           <ConfigTableVisible/>
       </VisibleContext.Provider>
