@@ -106,7 +106,9 @@ const Download = ({sharedRef}) => {
               });
             }}>
             <FeatureInnerBox className='flex text-center justify-center items-center hover:bg-black' withOfBox='227px' heightOfBox='59px' >
+              <div className='h-full w-full flex justify-center items-center'>
                 Export
+              </div>
             </FeatureInnerBox>
           </div>
     </>

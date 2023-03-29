@@ -7,7 +7,7 @@ import {TbSourceCode} from 'react-icons/tb'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-    const [logo, setLogo] = React.useState(true);
+    const [gitLogo, setgitLogo] = React.useState(false);
     const canvasBackGround=useSelector((state)=>state.canvasStyle.canvasBackGround);
     const [mainLogo, setmainLogo] = useState(false);
     const history = useNavigate();
@@ -30,11 +30,11 @@ const Navbar = () => {
       <div className='fixed top-4 right-5 cursor-pointer'>
         <NavLink to='https://github.com/YugBhanushali/code-to-image'>
 
-          <AiFillGithub className='cursor-pointer'
+          <AiFillGithub className='cursor-pointer'onMouseOver={()=>setgitLogo(true)} onMouseOut={()=>setgitLogo(false)}
               style={{
                   height:'40px',
                   width:'40px',
-                  color:`${canvasBackGround}`
+                  color:`${gitLogo===true ? `${canvasBackGround}` : `#6B5ED9`}`
               }}
           />
         </NavLink>

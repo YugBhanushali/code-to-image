@@ -47,7 +47,7 @@ label {
   }
   
   .toggleSwitchInput:checked + span {
-    background-color: #00c853;
+    background-color: #6B5ED9;
   }
   
   .toggleSwitchInput:checked + span:before {

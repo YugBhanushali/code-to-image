@@ -72,7 +72,7 @@ const Feature = ({sharedRef}) => {
                     <div className='flex flex-col'>
 
                         <FeatureInnerBox  withOfBox='227px' heightOfBox='67px'>
-                            Theme
+                            Theme UI
                             <DropdownTheme placeHolder='Atom dark' options={ThemeList}/>
                             {/* <DropdownChakra width='sm' placeholder='One dark' optionsList={ThemeList} typeList='theme'/> */}
                         </FeatureInnerBox>
