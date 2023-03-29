@@ -47,7 +47,7 @@ const Feature = ({sharedRef}) => {
                         {/* <DropdownChakra width='sm' placeholder='JavaScript' optionsList={ProgrammingLanguages} typeList='language'/> */}
                     </FeatureInnerBox>
                     <FeatureInnerBox withOfBox='200px'>
-                        Mode
+                        Dark
                         <ToggleSwitch
                             label="Toggle me"
                             toggled={true}
