@@ -1,6 +1,6 @@
 # Code to Image
 
-[![code to image](./src/assets/codetoimage.png)]
+![code to image](./src/assets/codetoimage.png)
 
 Code to Image is the app which can be used to create beautiful snippets of your code with customizable background, font styles, theme UI, Dark mode, and other more features and also allow user to download the snippet in different format e.g PNG,JPEG, and SVG.
 
