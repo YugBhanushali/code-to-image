@@ -5,6 +5,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import {TbSourceCode} from 'react-icons/tb'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Navbar = () => {
     const [gitLogo, setgitLogo] = React.useState(false);
@@ -17,6 +18,11 @@ const Navbar = () => {
     
   return (
     <div className='flex justify-center items-center'>
+      <Helmet>
+        <title>Code to Image</title>
+        <meta name='description' content='Create beautiful snippet of your code using Code to Image, with customizable theme UI, fonts, background, Dark mode and much more and downlaod the snippet in different formats' ></meta>
+        <meta name='keywords' content='codetoimg, codeimg, image, code, developer, developer tool, image generator, code snippets, snippets, code to image, converter, image converter, convert code to images, code to img, code image, snapshot, code snapshot, codeblock'></meta>
+      </Helmet>
       <div className='fixed top-4 left-5 mb-5'>
         {/* <img onMouseOver={()=>setLogo(false)} onMouseOut={()=>setLogo(true)} className='h-[90px] w-[60px] cursor-pointer' src={logo===true ? logo1 : logo2} alt="logo" />  */}
         <TbSourceCode className='cursor-pointer' onMouseOver={()=>setmainLogo(true)} onMouseOut={()=>setmainLogo(false)}
