@@ -40,7 +40,7 @@ const Navbar = () => {
         </NavLink>
         <div className='hidden lg:flex'>
           <a href="https://www.producthunt.com/posts/code-to-image?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-code&#0045;to&#0045;image" target="_blank">
-            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=386643&theme=light" alt="Code&#0032;to&#0032;Image - Beautify&#0032;your&#0032;code&#0044;&#0032;as&#0032;only&#0032;code&#0032;seems&#0032;to&#0032;be&#0032;boring | Product Hunt"  className='w-[250px] h-[45px]' width="250" height="54" />
+            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=386643&theme=light&peroiod=daily" alt="Code&#0032;to&#0032;Image - Beautify&#0032;your&#0032;code&#0044;&#0032;as&#0032;only&#0032;code&#0032;seems&#0032;to&#0032;be&#0032;boring | Product Hunt"  className='w-[250px] h-[45px]' width="250" height="54" />
           </a>
         </div>
         {/* <a href="https://www.producthunt.com/posts/code-to-image?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-code&#0045;to&#0045;image" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=386643&theme=dark" alt="Code&#0032;to&#0032;Image - Beautify&#0032;your&#0032;code&#0044;&#0032;as&#0032;only&#0032;code&#0032;seems&#0032;to&#0032;be&#0032;boring | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> */}
