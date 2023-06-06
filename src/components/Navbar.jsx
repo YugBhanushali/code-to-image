@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import logo1 from '../assets/logo/A4 - 1.png';
 import logo2 from '../assets/logo/A4 - 2.png';
+import bmac from '../assets/bmac.png';
 import { AiFillGithub } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import {TbSourceCode} from 'react-icons/tb'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
 
 const Navbar = () => {
     const [gitLogo, setgitLogo] = React.useState(false);
@@ -49,7 +51,24 @@ const Navbar = () => {
             <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=386643&theme=light&peroiod=daily" alt="Code&#0032;to&#0032;Image - Beautify&#0032;your&#0032;code&#0044;&#0032;as&#0032;only&#0032;code&#0032;seems&#0032;to&#0032;be&#0032;boring | Product Hunt"  className='w-[250px] h-[45px]' width="250" height="54" />
           </a>
         </div>
-        {/* <a href="https://www.producthunt.com/posts/code-to-image?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-code&#0045;to&#0045;image" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=386643&theme=dark" alt="Code&#0032;to&#0032;Image - Beautify&#0032;your&#0032;code&#0044;&#0032;as&#0032;only&#0032;code&#0032;seems&#0032;to&#0032;be&#0032;boring | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> */}
+
+        <div className=' flex justify-center items-center mr-3'>
+        {/* for desktop view */}
+          <div className='hidden sm:block'>
+            <a href="https://www.buymeacoffee.com/yugbhanushali" target="_blank">
+              <img className='' src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"  style={{height:'44px', width:'170px'}} />
+            </a>
+          </div>
+
+        {/* for mobile view */}
+          <div className='flex sm:hidden ml-[10px]'>
+            <a href="https://www.buymeacoffee.com/yugbhanushali" className='' target="_blank">
+              <img src={bmac} alt="Buy Me A Coffee" className='rounded-md' style={{height:'35px', width:'35px'}} />
+            </a>
+          </div>
+
+        </div>
+        
       </div>
     </div>
   )
