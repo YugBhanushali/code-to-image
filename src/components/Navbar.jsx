@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import logo1 from '../assets/logo/A4 - 1.png';
-import logo2 from '../assets/logo/A4 - 2.png';
 import bmac from '../assets/bmac.png';
+import MainLogo from '../assets/Frame 1.png';
 import { AiFillGithub } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import {TbSourceCode} from 'react-icons/tb'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+const TITLE = 'Code to Image';
+const DESCRIPTION = 'Create beautiful snippet of your code using Code to Image, with customizable theme UI, fonts, background, Dark mode and much more and downlaod the snippet in different formats. Convert your code into beautiful images with few clicks. Share this beautiful snippet with your friends and colleagues and make your code look more beautiful and attractive.';
+const URL = 'https://codetoimg.vercel.app/';
 
 const Navbar = () => {
     const [gitLogo, setgitLogo] = React.useState(false);
@@ -22,18 +24,50 @@ const Navbar = () => {
     <div className='flex justify-center items-center'>
       <Helmet>
         <title>Code to Image</title>
-        <meta name='description' content='Create beautiful snippet of your code using Code to Image, with customizable theme UI, fonts, background, Dark mode and much more and downlaod the snippet in different formats' ></meta>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta name='description' content={DESCRIPTION} ></meta>
         <meta name='keywords' content='codetoimg, codeimg, image, code, developer, developer tool, image generator, code snippets, snippets, code to image, converter, image converter, convert code to images, code to img, code image, snapshot, code snapshot, codeblock'></meta>
+        <link 
+          rel='shortcut icon' 
+          href={MainLogo} 
+          type='image/x-icon' 
+        />
+        {/* meta tag for adding creator details */}
+
+        
+
+        <meta property='og:title' content={TITLE} />
+        <meta property='og:description' content={DESCRIPTION} />
+        <meta property='og:url' content={URL} />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content={MainLogo} />
+        <meta property='og:site_name' content={TITLE} />
+
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content={TITLE} />
+        <meta name='twitter:description' content={DESCRIPTION} />
+        <meta name='twitter:url' content={URL} />
+        <meta name='twitter:image' content={MainLogo} />
+        <meta name='twitter:site' content='@TheYug03' />
+        <meta name='twitter:creator' content='@TheYug03' />
+        <meta name='author' content='Yug Bhanushali' />
+
       </Helmet>
-      <div className='fixed top-4 left-5 mb-5'>
-        {/* <img onMouseOver={()=>setLogo(false)} onMouseOut={()=>setLogo(true)} className='h-[90px] w-[60px] cursor-pointer' src={logo===true ? logo1 : logo2} alt="logo" />  */}
+      <div className='fixed top-4 left-5 mb-5 flex justify-center items-end '>
         <TbSourceCode className='cursor-pointer' onMouseOver={()=>setmainLogo(true)} onMouseOut={()=>setmainLogo(false)}
           style={{
                 height:'44px',
                 width:'44px',
                 color:`${mainLogo===true ? `${canvasBackGround}` : `#6B5ED9`}`
             }}
-        />
+        /> 
+        <p 
+          className={`sm:text-[21px] text-[19px] ml-2 sm:mb-[3px] mb-[6px] flex items-end text-[#6B5ED9] font-extrabold`}
+          style={{fontFamily:'Jetbrains mono'}}
+        >
+          Code to Image
+        </p>
       </div>
       <div className='fixed flex flex-row justify-center items-center top-4 right-[1px] mr-3 lg:mr-0 cursor-pointer'>
         <NavLink to='https://github.com/YugBhanushali/code-to-image'>
@@ -68,7 +102,7 @@ const Navbar = () => {
           </div>
 
         </div>
-        
+
       </div>
     </div>
   )

@@ -1,8 +1,19 @@
 {
   "name": "codetoimg",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Yug Bhanushali",
+    "email": "yug.h.bhanushali1@gmail.com",
+    "url": "https://github.com/YugBhanushali"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YugBhanushali/code-to-img"
+  },
+  "homepage": "https://codetoimg.vercel.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
