@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const GlobelThemeContext=createContext();
+export const GlobelThemeContext = createContext();

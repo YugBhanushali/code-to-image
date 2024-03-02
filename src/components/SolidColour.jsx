@@ -1,6 +1,6 @@
-import React from 'react'
-import { FeatureGeneralBox, FeatureInnerBox } from '../styled/StyledFeature'
-import ColourPicker from './ColourPicker'
+import React from "react";
+import { FeatureGeneralBox, FeatureInnerBox } from "../styled/StyledFeature";
+import ColourPicker from "./ColourPicker";
 
 const SolidColour = () => {
   return (
@@ -15,26 +15,36 @@ const SolidColour = () => {
     //     </div>
     // </div>
 
-    <div className='flex flex-row h-[100%] width-[100%]'>
-        <div className='flex flex-row h-[100%] width-[100%]'>
-                <div className='flex flex-row h-[30%] w-[100%]'>
-                    {/* <FeatureGeneralBox withOfBox='520px' paddingOfBox='10px' marginOfBox='0px'>
+    <div className="flex flex-row h-[100%] width-[100%]">
+      <div className="flex flex-row h-[100%] width-[100%]">
+        <div className="flex flex-row h-[30%] w-[100%]">
+          {/* <FeatureGeneralBox withOfBox='520px' paddingOfBox='10px' marginOfBox='0px'>
                         Gradient type
                         <ColourType/>
                     </FeatureGeneralBox> */}
-                    <FeatureGeneralBox marginOfBox='0px' heightOfBox='52px' withOfBox='160px' paddingOfBox='13px'>Background Colour</FeatureGeneralBox>
-                </div>
-
-                <div className='flex flex-row ml-[9px]'>
-                    {/* {gradientType === 'linear' ? <LinearGradientColour/> : <RadialGradient/>} */}
-                    <FeatureGeneralBox paddingOfBox='13px' heightOfBox='52px' withOfBox='180px' >
-                        <ColourPicker bgType='solid'/>          
-                    </FeatureGeneralBox>
-                </div>
-
+          <FeatureGeneralBox
+            marginOfBox="0px"
+            heightOfBox="52px"
+            withOfBox="160px"
+            paddingOfBox="13px"
+          >
+            Background Colour
+          </FeatureGeneralBox>
         </div>
-    </div>
-  )
-}
 
-export default SolidColour
+        <div className="flex flex-row ml-[9px]">
+          {/* {gradientType === 'linear' ? <LinearGradientColour/> : <RadialGradient/>} */}
+          <FeatureGeneralBox
+            paddingOfBox="13px"
+            heightOfBox="52px"
+            withOfBox="180px"
+          >
+            <ColourPicker bgType="solid" />
+          </FeatureGeneralBox>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SolidColour;

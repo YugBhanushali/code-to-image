@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const VisibleContext=createContext();
+export const VisibleContext = createContext();

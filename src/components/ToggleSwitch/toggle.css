@@ -1,56 +1,55 @@
 label {
-    position: relative;
-    display: inline-block;
-    width: 35px;
-    height: 20px;
-    margin-left: 10px;
-  }
-  
-  .toggleSwitchInput {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .toggleSwitch {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #2c3e50;
-    transition: 0.3s;
-    border-radius: 30px;
-  }
-  
-  strong {
-    position: absolute;
-    left: 100%;
-    width: max-content;
-    height: 100%;
-    line-height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  
-  .toggleSwitch:before {
-    position: absolute;
-    content: "";
-    height: 17px;
-    width: 17px;
-    left: 1.5px;
-    bottom: 1.5px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: 0.3s;
-  }
-  
-  .toggleSwitchInput:checked + span {
-    background-color: #6B5ED9;
-  }
-  
-  .toggleSwitchInput:checked + span:before {
-    transform: translateX(15px);
-  }
-  
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.toggleSwitchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSwitch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2c3e50;
+  transition: 0.3s;
+  border-radius: 30px;
+}
+
+strong {
+  position: absolute;
+  left: 100%;
+  width: max-content;
+  height: 100%;
+  line-height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.toggleSwitch:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 1.5px;
+  bottom: 1.5px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggleSwitchInput:checked + span {
+  background-color: #6b5ed9;
+}
+
+.toggleSwitchInput:checked + span:before {
+  transform: translateX(15px);
+}

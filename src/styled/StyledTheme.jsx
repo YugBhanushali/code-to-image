@@ -1,47 +1,45 @@
 import styled from "styled-components";
-import prism_a11y_dark from '../theme/prism-a11y-dark.css';
-import prism_atom_dark from '../theme/prism-atom-dark.css';
-import prism_base16_ateliersulphurpool_light from '../theme/prism-base16-ateliersulphurpool.light.css';
-import prism_cb from '../theme/prism-cb.css';
-import prism_coldark_cold from '../theme/prism-coldark-cold.css';
-import prism_coldark_dark from '../theme/prism-coldark-dark.css';
-import prism_coy_without_shadows from '../theme/prism-coy-without-shadows.css';
-import prism_custom from '../theme/prism-custom.css';
-import prism_darcula from '../theme/prism-darcula.css';
-import prism_dracula from '../theme/prism-dracula.css';
-import prism_duotone_dark from '../theme/prism-duotone-dark.css';
-import prism_duotone_earth from '../theme/prism-duotone-earth.css';
-import prism_duotone_forest from '../theme/prism-duotone-forest.css';
-import prism_duotone_light from '../theme/prism-duotone-light.css';
-import prism_duotone_sea from '../theme/prism-duotone-sea.css';
-import prism_duotone_space from '../theme/prism-duotone-space.css';
-import prism_ghcolors from '../theme/prism-ghcolors.css';
-import prism_gruvbox_dark from '../theme/prism-gruvbox-dark.css';
-import prism_gruvbox_light from '../theme/prism-gruvbox-light.css';
-import prism_holi_theme from '../theme/prism-holi-theme.css';
-import prism_hopscotch from '../theme/prism-hopscotch.css';
-import prism_laserwave from '../theme/prism-laserwave.css';
-import prism_lucario from '../theme/prism-lucario.css';
-import prism_material_dark from '../theme/prism-material-dark.css';
-import prism_material_light from '../theme/prism-material-light.css';
+import prism_a11y_dark from "../theme/prism-a11y-dark.css";
+import prism_atom_dark from "../theme/prism-atom-dark.css";
+import prism_base16_ateliersulphurpool_light from "../theme/prism-base16-ateliersulphurpool.light.css";
+import prism_cb from "../theme/prism-cb.css";
+import prism_coldark_cold from "../theme/prism-coldark-cold.css";
+import prism_coldark_dark from "../theme/prism-coldark-dark.css";
+import prism_coy_without_shadows from "../theme/prism-coy-without-shadows.css";
+import prism_custom from "../theme/prism-custom.css";
+import prism_darcula from "../theme/prism-darcula.css";
+import prism_dracula from "../theme/prism-dracula.css";
+import prism_duotone_dark from "../theme/prism-duotone-dark.css";
+import prism_duotone_earth from "../theme/prism-duotone-earth.css";
+import prism_duotone_forest from "../theme/prism-duotone-forest.css";
+import prism_duotone_light from "../theme/prism-duotone-light.css";
+import prism_duotone_sea from "../theme/prism-duotone-sea.css";
+import prism_duotone_space from "../theme/prism-duotone-space.css";
+import prism_ghcolors from "../theme/prism-ghcolors.css";
+import prism_gruvbox_dark from "../theme/prism-gruvbox-dark.css";
+import prism_gruvbox_light from "../theme/prism-gruvbox-light.css";
+import prism_holi_theme from "../theme/prism-holi-theme.css";
+import prism_hopscotch from "../theme/prism-hopscotch.css";
+import prism_laserwave from "../theme/prism-laserwave.css";
+import prism_lucario from "../theme/prism-lucario.css";
+import prism_material_dark from "../theme/prism-material-dark.css";
+import prism_material_light from "../theme/prism-material-light.css";
 // import prism_material_oceanic from '../theme/prism-material-oceanic.css';
-import prism_night_owl from '../theme/prism-night-owl.css';
-import prism_nord from '../theme/prism-nord.css';
-import prism_one_dark from '../theme/prism-one-dark.css';
-import prism_one_light from '../theme/prism-one-light.css';
-import prism_pojoaque from '../theme/prism-pojoaque.css';
-import prism_shades_of_purple from '../theme/prism-shades-of-purple.css';
-import prism_solarized_dark_atom from '../theme/prism-solarized-dark-atom.css';
+import prism_night_owl from "../theme/prism-night-owl.css";
+import prism_nord from "../theme/prism-nord.css";
+import prism_one_dark from "../theme/prism-one-dark.css";
+import prism_one_light from "../theme/prism-one-light.css";
+import prism_pojoaque from "../theme/prism-pojoaque.css";
+import prism_shades_of_purple from "../theme/prism-shades-of-purple.css";
+import prism_solarized_dark_atom from "../theme/prism-solarized-dark-atom.css";
 // import prism_synthwave84 from '../theme/prism-synthwave84.css';
-import prism_vs from '../theme/prism-vs.css';
-import prism_vsc_dark_plus from '../theme/prism-vsc-dark-plus.css';
-import prism_xonokai from '../theme/prism-xonokai.css';
-import prism_z_touch from '../theme/prism-z-touch.css';
-
+import prism_vs from "../theme/prism-vs.css";
+import prism_vsc_dark_plus from "../theme/prism-vsc-dark-plus.css";
+import prism_xonokai from "../theme/prism-xonokai.css";
+import prism_z_touch from "../theme/prism-z-touch.css";
 
 const StyledTheme = styled.div`
-
-.prism-material-dark {
+  .prism-material-dark {
     ${prism_material_dark}
   }
 
@@ -141,9 +139,11 @@ const StyledTheme = styled.div`
     ${prism_material_light}
   }
 
-  ${'' /* .prism-material-oceanic {
+  ${
+    "" /* .prism-material-oceanic {
     ${prism_material_oceanic}
-  } */}
+  } */
+  }
 
   .prism-night-owl {
     ${prism_night_owl}
@@ -173,9 +173,11 @@ const StyledTheme = styled.div`
     ${prism_solarized_dark_atom}
   }
 
-  ${'' /* .prism-synthwave84 {
+  ${
+    "" /* .prism-synthwave84 {
     ${prism_synthwave84}
-  } */}
+  } */
+  }
 
   .prism-vs {
     ${prism_vs}
@@ -192,6 +194,6 @@ const StyledTheme = styled.div`
   .prism-z-touch {
     ${prism_z_touch}
   }
-`
+`;
 
 export default StyledTheme;
